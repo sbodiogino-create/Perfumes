@@ -1,0 +1,62 @@
+@import "tailwindcss";
+
+:root {
+  --color-ink: #0b0b0f;
+  --color-ink-soft: #17171d;
+  --color-card: #1a1a22;
+  --color-line: #2b2b34;
+  --color-bone: #f4f2ec;
+  --color-bone-dim: #c9c7bf;
+  --color-violet: #8b2fff;
+  --color-violet-soft: #b26bff;
+  --color-lime: #d4ff3d;
+  --color-muted: #8a8a93;
+}
+
+@theme inline {
+  --color-ink: var(--color-ink);
+  --color-ink-soft: var(--color-ink-soft);
+  --color-card: var(--color-card);
+  --color-line: var(--color-line);
+  --color-bone: var(--color-bone);
+  --color-bone-dim: var(--color-bone-dim);
+  --color-violet: var(--color-violet);
+  --color-violet-soft: var(--color-violet-soft);
+  --color-lime: var(--color-lime);
+  --color-muted: var(--color-muted);
+  --font-display: var(--font-space-grotesk);
+  --font-sans: var(--font-inter);
+}
+
+body {
+  background: var(--color-ink);
+  color: var(--color-bone);
+  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+}
+
+.font-display {
+  font-family: var(--font-display), ui-sans-serif, system-ui, sans-serif;
+}
+
+::selection {
+  background: var(--color-lime);
+  color: var(--color-ink);
+}
+
+.pulse-line {
+  stroke: var(--color-lime);
+}
+
+@keyframes pulse-glow {
+  0%,
+  100% {
+    opacity: 0.55;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2.4s ease-in-out infinite;
+}
