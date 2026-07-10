@@ -1,9 +1,11 @@
 export type Gender = "Unisex" | "Masculino" | "Femenino";
+export type Category = "Árabes" | "Diseñador";
 
 export type Product = {
   slug: string;
   name: string;
   brand: string;
+  category: Category;
   family: string;
   similarTo?: string;
   gender: Gender;
@@ -27,7 +29,10 @@ export type Product = {
 // en TikTok/Instagram (columna "Virales TikTok"), buen margen y bajo riesgo de
 // stock inmovilizado. Los originales de diseñador de alta gama (Baccarat Rouge 540,
 // Good Girl, Born in Roma) quedan afuera del lanzamiento: inmovilizan mucho capital
-// por unidad y conviene sumarlos en una fase 2, cuando haya flujo de caja.
+// por unidad y conviene sumarlos en una fase 2, cuando haya flujo de caja. Por eso
+// hoy `category` es "Árabes" en los 20 productos — la categoría "Diseñador" queda
+// armada en el sitio (tienda, filtros) para activarla apenas se sume el primer
+// producto de esa fase 2.
 //
 // Las notas olfativas (`notes`) fueron verificadas cruzando Fragrantica con al
 // menos una fuente adicional (sitio oficial de marca o retailer grande) para
@@ -44,6 +49,7 @@ export const products: Product[] = [
     slug: "khamrah",
     name: "Khamrah",
     brand: "Lattafa",
+    category: "Árabes",
     family: "Ambarado gourmand",
     gender: "Unisex",
     tag: "Viral",
@@ -63,6 +69,7 @@ export const products: Product[] = [
     slug: "yara-pink",
     name: "Yara",
     brand: "Lattafa",
+    category: "Árabes",
     family: "Floral afrutado gourmand",
     gender: "Femenino",
     tag: "Viral",
@@ -82,6 +89,7 @@ export const products: Product[] = [
     slug: "yara-candy",
     name: "Yara Candy",
     brand: "Lattafa",
+    category: "Árabes",
     family: "Gourmand dulce",
     gender: "Femenino",
     tag: "Viral",
@@ -101,6 +109,7 @@ export const products: Product[] = [
     slug: "khamrah-qahwa",
     name: "Khamrah Qahwa",
     brand: "Lattafa",
+    category: "Árabes",
     family: "Gourmand boozy con café",
     gender: "Unisex",
     tag: "Viral",
@@ -120,6 +129,7 @@ export const products: Product[] = [
     slug: "ana-abiyedh-rouge",
     name: "Ana Abiyedh Rouge",
     brand: "Lattafa",
+    category: "Árabes",
     family: "Ambarado especiado",
     similarTo: "Para fans de Baccarat Rouge 540",
     gender: "Unisex",
@@ -140,6 +150,7 @@ export const products: Product[] = [
     slug: "badee-al-oud-for-glory",
     name: "Bade'e Al Oud — For Glory",
     brand: "Lattafa",
+    category: "Árabes",
     family: "Oud floral",
     gender: "Unisex",
     tag: "Viral",
@@ -159,6 +170,7 @@ export const products: Product[] = [
     slug: "mayar",
     name: "Mayar",
     brand: "Lattafa",
+    category: "Árabes",
     family: "Floral afrutado",
     gender: "Femenino",
     tag: "Viral",
@@ -178,6 +190,7 @@ export const products: Product[] = [
     slug: "khamrah-dukhan",
     name: "Khamrah Dukhan",
     brand: "Lattafa",
+    category: "Árabes",
     family: "Ambarado ahumado",
     gender: "Unisex",
     tag: "Tendencia",
@@ -197,6 +210,7 @@ export const products: Product[] = [
     slug: "hawas-him",
     name: "Hawas for Him",
     brand: "Rasasi",
+    category: "Árabes",
     family: "Acuático especiado",
     gender: "Masculino",
     tag: "Viral",
@@ -216,6 +230,7 @@ export const products: Product[] = [
     slug: "asad",
     name: "Asad",
     brand: "Lattafa",
+    category: "Árabes",
     family: "Amaderado ahumado",
     gender: "Masculino",
     tag: "Viral",
@@ -235,6 +250,7 @@ export const products: Product[] = [
     slug: "asad-bourbon",
     name: "Asad Bourbon",
     brand: "Lattafa",
+    category: "Árabes",
     family: "Amaderado boozy",
     gender: "Masculino",
     tag: "Viral",
@@ -254,6 +270,7 @@ export const products: Product[] = [
     slug: "eclaire",
     name: "Eclaire",
     brand: "Lattafa",
+    category: "Árabes",
     family: "Gourmand vainilla",
     gender: "Femenino",
     tag: "Viral",
@@ -273,6 +290,7 @@ export const products: Product[] = [
     slug: "eclaire-pistache",
     name: "Eclaire Pistache",
     brand: "Lattafa",
+    category: "Árabes",
     family: "Gourmand tostado",
     gender: "Femenino",
     tag: "Tendencia",
@@ -292,6 +310,7 @@ export const products: Product[] = [
     slug: "fakhar-woman-rose",
     name: "Fakhar Woman Rose",
     brand: "Lattafa",
+    category: "Árabes",
     family: "Floral rosado",
     similarTo: "Para fans de Delina (Parfums de Marly)",
     gender: "Femenino",
@@ -312,6 +331,7 @@ export const products: Product[] = [
     slug: "club-de-nuit-intense-man",
     name: "Club de Nuit Intense Man",
     brand: "Armaf",
+    category: "Árabes",
     family: "Frutal amaderado",
     similarTo: "El dupe de Creed Aventus por excelencia",
     gender: "Masculino",
@@ -332,6 +352,7 @@ export const products: Product[] = [
     slug: "9pm-black",
     name: "9pm Black",
     brand: "Afnan",
+    category: "Árabes",
     family: "Oriental especiado",
     gender: "Masculino",
     tag: "Viral",
@@ -351,6 +372,7 @@ export const products: Product[] = [
     slug: "kismet-magic",
     name: "Kismet Magic",
     brand: "Maison Alhambra",
+    category: "Árabes",
     family: "Floral ambarado",
     gender: "Unisex",
     tag: "Viral",
@@ -370,6 +392,7 @@ export const products: Product[] = [
     slug: "amber-oud-gold-edition",
     name: "Amber Oud Gold Edition",
     brand: "Al Haramain",
+    category: "Árabes",
     family: "Oud ahumado",
     similarTo: "Estilo Ombré Nomade (Louis Vuitton)",
     gender: "Unisex",
@@ -390,6 +413,7 @@ export const products: Product[] = [
     slug: "dubai-chocolate",
     name: "Dubai Chocolate",
     brand: "Anfar",
+    category: "Árabes",
     family: "Gourmand chocolate",
     gender: "Unisex",
     tag: "Tendencia",
@@ -409,6 +433,7 @@ export const products: Product[] = [
     slug: "bharara-king",
     name: "King",
     brand: "Bharara",
+    category: "Árabes",
     family: "Amaderado especiado premium",
     gender: "Masculino",
     tag: "Viral",
@@ -432,6 +457,14 @@ export function getProductBySlug(slug: string): Product | undefined {
 
 export function getBrands(): string[] {
   return Array.from(new Set(products.map((p) => p.brand))).sort();
+}
+
+export const categories: Category[] = ["Árabes", "Diseñador"];
+
+export function getBrandsByCategory(category: Category): string[] {
+  return Array.from(
+    new Set(products.filter((p) => p.category === category).map((p) => p.brand))
+  ).sort();
 }
 
 export function formatPrice(value: number): string {

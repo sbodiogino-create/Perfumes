@@ -15,9 +15,9 @@ export default function Footer() {
         <div>
           <p className="text-sm font-semibold text-bone">Tienda</p>
           <ul className="mt-3 space-y-2 text-sm text-muted">
-            <li><Link href="/tienda" className="hover:text-lime">Todos los perfumes</Link></li>
+            <li><Link href="/tienda?cat=Árabes" className="hover:text-lime">Árabes</Link></li>
+            <li><Link href="/tienda?cat=Diseñador" className="hover:text-lime">Diseñador</Link></li>
             <li><Link href="/tienda?tag=Viral" className="hover:text-lime">🔥 Virales</Link></li>
-            <li><Link href="/tienda?tag=Tendencia" className="hover:text-lime">📈 Tendencia</Link></li>
           </ul>
         </div>
 
