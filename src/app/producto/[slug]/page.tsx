@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import PerfumeBottle from "@/components/PerfumeBottle";
+import ProductImage from "@/components/ProductImage";
 import AddToCartButton from "@/components/AddToCartButton";
 import ProductCard from "@/components/ProductCard";
 import { formatPrice, getProductBySlug, products } from "@/lib/products";
@@ -39,11 +39,7 @@ export default async function ProductPage({ params }: { params: Params }) {
 
       <div className="mt-6 grid gap-10 md:grid-cols-2">
         <div className="flex items-center justify-center rounded-2xl border border-line bg-card py-16">
-          <PerfumeBottle
-            liquidColor={product.liquidColor}
-            name={product.name}
-            className="h-80 w-auto"
-          />
+          <ProductImage product={product} className="h-80 w-auto" />
         </div>
 
         <div>

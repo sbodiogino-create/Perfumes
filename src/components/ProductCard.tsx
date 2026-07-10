@@ -1,5 +1,5 @@
 import Link from "next/link";
-import PerfumeBottle from "./PerfumeBottle";
+import ProductImage from "./ProductImage";
 import { formatPrice, type Product } from "@/lib/products";
 
 export default function ProductCard({ product }: { product: Product }) {
@@ -14,9 +14,8 @@ export default function ProductCard({ product }: { product: Product }) {
             {product.tag === "Viral" ? "🔥 Viral" : "📈 Tendencia"}
           </span>
         )}
-        <PerfumeBottle
-          liquidColor={product.liquidColor}
-          name={product.name}
+        <ProductImage
+          product={product}
           className="h-48 w-auto transition duration-300 group-hover:-translate-y-1"
         />
       </div>

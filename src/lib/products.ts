@@ -11,6 +11,8 @@ export type Product = {
   size: string;
   price: number;
   liquidColor: string;
+  /** URL externa a una foto real del frasco (opcional). Si falta, se usa la ilustración SVG. */
+  image?: string;
   notes: {
     salida: string[];
     corazon: string[];
