@@ -1,6 +1,6 @@
 # PULSO — E-commerce de perfumes
 
-Sitio de e-commerce para **PULSO**, marca de perfumería urbana de autor (unisex, Argentina). Construido con Next.js (App Router), TypeScript, Tailwind CSS y Zustand.
+Sitio de e-commerce para **PULSO**, una curaduría de perfumes árabes/dupes virales y algunas piezas premium (Argentina). No fabrica — elige, dentro de un catálogo mayorista de cientos de productos, solo los que ya demostraron demanda real en TikTok/Instagram/MercadoLibre. Construido con Next.js (App Router), TypeScript, Tailwind CSS y Zustand.
 
 ## Stack
 
@@ -77,7 +77,7 @@ el access token de prueba por el de producción — no hace falta tocar código.
 
 ## Estado actual — qué es real y qué es placeholder
 
-- **Catálogo:** 8 fragancias ficticias con nombres, notas y precios de referencia en `src/lib/products.ts`. Reemplazar por el catálogo real cuando esté definido.
+- **Catálogo:** 20 productos **reales** (marca, costo, precio en ARS) curados a partir de `Estrategia_de_Precios__Perfumes.xlsx` — ver el criterio de selección completo en [`MARKETING.md`](./MARKETING.md#2-el-catálogo-de-lanzamiento--qué-se-vende-y-por-qué). Las notas olfativas y descripciones se redactaron a partir de conocimiento general de cada fragancia (son perfumes reales del mercado) — vale la pena que alguien del equipo las revise/ajuste antes de publicar.
 - **Imágenes de producto:** ilustraciones SVG generadas por código (no hay fotos reales todavía).
 - **Checkout:** el flujo completo funciona y ya está conectado a Mercado Pago Checkout Pro (ver sección de arriba); si no hay credenciales configuradas, se simula.
 - **Formulario de contacto:** no envía email todavía, solo muestra confirmación en pantalla.

@@ -11,7 +11,7 @@ export default function ProductCard({ product }: { product: Product }) {
       <div className="relative flex items-center justify-center bg-ink-soft py-8">
         {product.tag && (
           <span className="absolute left-4 top-4 rounded-full bg-lime px-3 py-1 text-xs font-bold text-ink">
-            {product.tag}
+            {product.tag === "Viral" ? "🔥 Viral" : "📈 Tendencia"}
           </span>
         )}
         <PerfumeBottle
@@ -21,11 +21,18 @@ export default function ProductCard({ product }: { product: Product }) {
         />
       </div>
       <div className="flex flex-1 flex-col gap-1 p-5">
-        <p className="text-xs uppercase tracking-wide text-muted">{product.family}</p>
+        <p className="text-xs uppercase tracking-wide text-muted">
+          {product.brand} · {product.family}
+        </p>
         <h3 className="font-display text-lg font-bold">{product.name}</h3>
+        {product.similarTo && (
+          <p className="text-xs font-medium text-violet-soft">{product.similarTo}</p>
+        )}
         <p className="text-sm text-bone-dim line-clamp-2">{product.shortDescription}</p>
         <div className="mt-3 flex items-center justify-between">
-          <span className="text-sm text-muted">{product.size}</span>
+          <span className="text-sm text-muted">
+            {product.size} · {product.gender}
+          </span>
           <span className="font-display text-lg font-bold text-lime">
             {formatPrice(product.price)}
           </span>

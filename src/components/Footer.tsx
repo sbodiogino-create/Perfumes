@@ -8,7 +8,7 @@ export default function Footer() {
           <p className="font-display text-xl font-bold">PULSO</p>
           <p className="mt-2 text-sm text-muted">Sentí tu pulso.</p>
           <p className="mt-4 text-xs text-muted">
-            Fragancias urbanas de autor. Buenos Aires, Argentina.
+            Perfumes árabes y de nicho, curados. Buenos Aires, Argentina.
           </p>
         </div>
 
@@ -16,8 +16,8 @@ export default function Footer() {
           <p className="text-sm font-semibold text-bone">Tienda</p>
           <ul className="mt-3 space-y-2 text-sm text-muted">
             <li><Link href="/tienda" className="hover:text-lime">Todos los perfumes</Link></li>
-            <li><Link href="/tienda?tag=Bestseller" className="hover:text-lime">Más vendidos</Link></li>
-            <li><Link href="/tienda?tag=Nuevo" className="hover:text-lime">Nuevos lanzamientos</Link></li>
+            <li><Link href="/tienda?tag=Viral" className="hover:text-lime">🔥 Virales</Link></li>
+            <li><Link href="/tienda?tag=Tendencia" className="hover:text-lime">📈 Tendencia</Link></li>
           </ul>
         </div>
 

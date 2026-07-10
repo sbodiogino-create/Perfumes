@@ -1,8 +1,13 @@
+export type Gender = "Unisex" | "Masculino" | "Femenino";
+
 export type Product = {
   slug: string;
   name: string;
+  brand: string;
   family: string;
-  tag?: "Bestseller" | "Nuevo" | "Edición limitada";
+  similarTo?: string;
+  gender: Gender;
+  tag?: "Viral" | "Tendencia";
   size: string;
   price: number;
   liquidColor: string;
@@ -15,143 +20,405 @@ export type Product = {
   shortDescription: string;
 };
 
+// Catálogo curado a partir de "Estrategia de Precios - Perfumes": de ~558 productos
+// mayoristas disponibles, esta selección prioriza fragancias con demanda probada
+// en TikTok/Instagram (columna "Virales TikTok"), buen margen y bajo riesgo de
+// stock inmovilizado. Los originales de diseñador de alta gama (Baccarat Rouge 540,
+// Good Girl, Born in Roma) quedan afuera del lanzamiento: inmovilizan mucho capital
+// por unidad y conviene sumarlos en una fase 2, cuando haya flujo de caja.
 export const products: Product[] = [
   {
-    slug: "latido",
-    name: "LATIDO",
-    family: "Floral amaderado",
-    tag: "Bestseller",
-    size: "50ml",
-    price: 58900,
-    liquidColor: "#B26BFF",
-    notes: {
-      salida: ["Pimienta rosa", "Bergamota"],
-      corazon: ["Iris", "Jazmín sambac"],
-      fondo: ["Cedro", "Almizcle blanco"],
-    },
-    shortDescription: "La fragancia insignia de PULSO. El pulso de la marca.",
-    description:
-      "LATIDO es el corazón de PULSO: un floral amaderado que arranca con un golpe especiado y se asienta en un fondo cálido de cedro y almizcle. Pensado para usarse todos los días, en cualquier cuerpo. Es el aroma con el que arrancamos, y el que mejor nos define.",
-  },
-  {
-    slug: "voltaje",
-    name: "VOLTAJE",
-    family: "Cítrico especiado",
-    tag: "Bestseller",
-    size: "50ml",
-    price: 54900,
-    liquidColor: "#D4FF3D",
-    notes: {
-      salida: ["Pomelo", "Mandarina", "Jengibre"],
-      corazon: ["Cardamomo", "Té verde"],
-      fondo: ["Vetiver", "Ambroxan"],
-    },
-    shortDescription: "Energía pura. Cítrico y directo, para arrancar el día.",
-    description:
-      "VOLTAJE es descarga inmediata: cítricos exprimidos y jengibre fresco sobre un fondo seco de vetiver. No pide permiso, entra rápido y se queda el tiempo justo. Ideal para las mañanas que necesitan un empujón.",
-  },
-  {
-    slug: "medianoche",
-    name: "MEDIANOCHE",
-    family: "Amaderado oriental",
-    size: "50ml",
-    price: 62900,
-    liquidColor: "#8B2FFF",
-    notes: {
-      salida: ["Canela", "Ciruela negra"],
-      corazon: ["Cuero", "Incienso"],
-      fondo: ["Tonka", "Sándalo"],
-    },
-    shortDescription: "Denso, cálido y magnético. Para cuando cae el sol.",
-    description:
-      "MEDIANOCHE es la versión nocturna de PULSO: cuero, incienso y haba tonka en un acorde envolvente que se siente en la piel horas después. Nace para salidas largas, fiestas que no terminan y esas noches que se alargan solas.",
-  },
-  {
-    slug: "asfalto",
-    name: "ASFALTO",
-    family: "Cuero y vetiver",
+    slug: "khamrah",
+    name: "Khamrah",
+    brand: "Lattafa",
+    family: "Ambarado gourmand",
+    gender: "Unisex",
+    tag: "Viral",
     size: "100ml",
-    price: 71900,
-    liquidColor: "#3DE0FF",
+    price: 51000,
+    liquidColor: "#E8A33D",
     notes: {
-      salida: ["Pimienta negra", "Enebro"],
-      corazon: ["Cuero suave", "Geranio"],
-      fondo: ["Vetiver", "Musgo de roble"],
+      salida: ["Canela", "Dátiles"],
+      corazon: ["Praliné", "Tuberosa"],
+      fondo: ["Vainilla", "Benjuí", "Ámbar"],
     },
-    shortDescription: "Crudo y urbano. Cuero sobre cemento.",
+    shortDescription: "El árabe más exitoso en la historia de PerfumeTok.",
     description:
-      "ASFALTO toma el cuero y lo cruza con vetiver y musgo para un resultado seco, terroso y con carácter. Un aroma que se lleva bien con las calles: sin pulir, sin pedir disculpas.",
+      "Canela, dátiles y una base de vainilla y ámbar que sigue dominando PerfumeTok desde que se lanzó. Es el perfume que más veces vas a ver recomendado en redes — y el que más rápido se vende en cualquier catálogo árabe.",
   },
   {
-    slug: "neon",
-    name: "NEÓN",
-    family: "Floral afrutado",
-    tag: "Nuevo",
-    size: "50ml",
-    price: 56900,
+    slug: "yara-pink",
+    name: "Yara",
+    brand: "Lattafa",
+    family: "Floral afrutado gourmand",
+    gender: "Femenino",
+    tag: "Viral",
+    size: "100ml",
+    price: 54000,
+    liquidColor: "#FF6FB0",
+    notes: {
+      salida: ["Pera", "Mandarina"],
+      corazon: ["Jazmín sambac", "Flor de azahar"],
+      fondo: ["Vainilla", "Cashmeran", "Caramelo"],
+    },
+    shortDescription: "Cremoso, frutal y tropical. Viral hace años, no hace semanas.",
+    description:
+      "Vainilla cremosa con un golpe frutal tropical. La mayoría de los virales de TikTok duran unas semanas — Yara lleva años vigente y sigue siendo de los más pedidos en cualquier búsqueda de perfumes árabes.",
+  },
+  {
+    slug: "yara-candy",
+    name: "Yara Candy",
+    brand: "Lattafa",
+    family: "Gourmand dulce",
+    gender: "Femenino",
+    tag: "Viral",
+    size: "100ml",
+    price: 49500,
     liquidColor: "#FF3DAE",
     notes: {
-      salida: ["Frutos rojos", "Pera"],
-      corazon: ["Peonía", "Flor de loto"],
-      fondo: ["Almizcle", "Madera de cachemira"],
+      salida: ["Frutos rojos", "Caramelo"],
+      corazon: ["Flor de azahar", "Coco"],
+      fondo: ["Vainilla", "Almizcle"],
     },
-    shortDescription: "Dulce, luminoso, imposible de ignorar.",
+    shortDescription: "El flanker más dulce de Yara, empujando fuerte en TikTok Shop.",
     description:
-      "NEÓN es la fragancia más luminosa de la línea: frutos rojos y peonía sobre una base suave de almizcle. Fue pensada para brillar en poca luz, literal y figuradamente. La última incorporación a la familia PULSO.",
+      "La versión más golosa de Yara: caramelo y coco sobre la misma base de vainilla que la hizo famosa. Ideal para quien busca algo todavía más dulce y llamativo.",
   },
   {
-    slug: "vertigo",
-    name: "VÉRTIGO",
-    family: "Especiado gourmand",
-    tag: "Edición limitada",
-    size: "50ml",
-    price: 68900,
-    liquidColor: "#FFB23D",
-    notes: {
-      salida: ["Cardamomo", "Naranja sanguina"],
-      corazon: ["Praliné", "Nuez moscada"],
-      fondo: ["Vainilla ahumada", "Haba tonka"],
-    },
-    shortDescription: "Intenso y adictivo. Edición limitada, stock reducido.",
-    description:
-      "VÉRTIGO es nuestra apuesta más arriesgada: especias cálidas y un fondo gourmand ahumado que genera dependencia. Se produce en lotes chicos — cuando se agota, no vuelve hasta la próxima tanda.",
-  },
-  {
-    slug: "eco-urbano",
-    name: "ECO URBANO",
-    family: "Verde acuático",
-    size: "50ml",
-    price: 52900,
-    liquidColor: "#3DFFB2",
-    notes: {
-      salida: ["Hoja de higuera", "Pepino"],
-      corazon: ["Té blanco", "Violeta"],
-      fondo: ["Almizcle limpio", "Cedro"],
-    },
-    shortDescription: "Fresco y liviano. El clásico de uso diario.",
-    description:
-      "ECO URBANO es la opción más fresca del catálogo: verde, acuática y liviana, pensada para el día a día y climas cálidos. La que va bien con todo y no compite con nada.",
-  },
-  {
-    slug: "bajofondo",
-    name: "BAJOFONDO",
-    family: "Amaderado ahumado",
+    slug: "khamrah-qahwa",
+    name: "Khamrah Qahwa",
+    brand: "Lattafa",
+    family: "Gourmand boozy con café",
+    gender: "Unisex",
+    tag: "Viral",
     size: "100ml",
-    price: 74900,
-    liquidColor: "#6B2FFF",
+    price: 54000,
+    liquidColor: "#A9713F",
     notes: {
-      salida: ["Pimienta negra", "Elemí"],
-      corazon: ["Madera de oud", "Incienso"],
-      fondo: ["Leather accord", "Pachulí"],
+      salida: ["Canela", "Café"],
+      corazon: ["Dátiles", "Praliné"],
+      fondo: ["Vainilla", "Tonka", "Ámbar"],
     },
-    shortDescription: "Oscuro y profundo. El más intenso de la línea.",
+    shortDescription: "La ola 'boozy gourmand' con café que domina 2026.",
     description:
-      "BAJOFONDO explora los acordes más oscuros: oud, incienso y pachulí en una construcción densa y ahumada. Es el perfume que más dura en piel y el que menos se comparte.",
+      "Todo lo que hizo viral a Khamrah, más una nota de café intensa que lo vuelve más oscuro y adictivo. Los gourmands con notas de licor y café son de lo más buscado este año.",
+  },
+  {
+    slug: "ana-abiyedh-rouge",
+    name: "Ana Abiyedh Rouge",
+    brand: "Lattafa",
+    family: "Ambarado especiado",
+    similarTo: "Para fans de Baccarat Rouge 540",
+    gender: "Unisex",
+    tag: "Viral",
+    size: "60ml",
+    price: 43500,
+    liquidColor: "#E0483D",
+    notes: {
+      salida: ["Azafrán", "Jazmín"],
+      corazon: ["Madera de cedro"],
+      fondo: ["Ámbar cristalino", "Almizcle"],
+    },
+    shortDescription: "El dupe de Baccarat Rouge 540 más famoso de TikTok.",
+    description:
+      "El acorde ambarado-especiado que hizo mundialmente famoso a Baccarat Rouge 540, a una fracción del precio. Es, literalmente, el hashtag #br540dupes más repetido en TikTok — y nuestra puerta de entrada más accesible.",
+  },
+  {
+    slug: "badee-al-oud-for-glory",
+    name: "Bade'e Al Oud — For Glory",
+    brand: "Lattafa",
+    family: "Oud floral",
+    gender: "Unisex",
+    tag: "Viral",
+    size: "100ml",
+    price: 51000,
+    liquidColor: "#9C6B3E",
+    notes: {
+      salida: ["Pera", "Azafrán"],
+      corazon: ["Rosa", "Oud"],
+      fondo: ["Ámbar", "Almizcle", "Vainilla"],
+    },
+    shortDescription: "El clásico de PerfumeTok árabe: la puerta de entrada al oud.",
+    description:
+      "Oud suavizado con rosa y vainilla, pensado para quien nunca probó una fragancia arábiga y quiere empezar por el clásico que todo el mundo recomienda antes de ir a algo más intenso.",
+  },
+  {
+    slug: "mayar",
+    name: "Mayar",
+    brand: "Lattafa",
+    family: "Floral afrutado",
+    gender: "Femenino",
+    tag: "Viral",
+    size: "100ml",
+    price: 55500,
+    liquidColor: "#FF7AC6",
+    notes: {
+      salida: ["Cereza", "Bergamota"],
+      corazon: ["Rosa", "Jazmín"],
+      fondo: ["Vainilla", "Almizcle"],
+    },
+    shortDescription: "El femenino árabe que aparece constantemente en PerfumeTok.",
+    description:
+      "Floral frutado con un corazón de rosa y jazmín. Es una de las recomendaciones más constantes dentro del universo de perfumes árabes femeninos en redes.",
+  },
+  {
+    slug: "khamrah-dukhan",
+    name: "Khamrah Dukhan",
+    brand: "Lattafa",
+    family: "Ambarado ahumado",
+    gender: "Unisex",
+    tag: "Tendencia",
+    size: "100ml",
+    price: 60000,
+    liquidColor: "#7A6152",
+    notes: {
+      salida: ["Canela", "Incienso"],
+      corazon: ["Dátiles ahumados"],
+      fondo: ["Vainilla ahumada", "Benjuí"],
+    },
+    shortDescription: "\"Marshmallow gótico\": lo dulce se vuelve oscuro y ahumado.",
+    description:
+      "La versión ahumada de Khamrah — 'dukhan' significa humo en árabe. Las búsquedas de perfumes con nota marshmallow crecieron más de 240% este año, y esta variante le suma una capa oscura que la está empujando fuerte en tendencias.",
+  },
+  {
+    slug: "hawas-him",
+    name: "Hawas for Him",
+    brand: "Rasasi",
+    family: "Acuático especiado",
+    gender: "Masculino",
+    tag: "Viral",
+    size: "100ml",
+    price: 60000,
+    liquidColor: "#3DC7FF",
+    notes: {
+      salida: ["Bergamota", "Pimienta rosa"],
+      corazon: ["Lavanda", "Notas marinas"],
+      fondo: ["Pachulí", "Almizcle"],
+    },
+    shortDescription: "Acuático masculino árabe, viral de verano.",
+    description:
+      "Fresco, especiado y con proyección marina — una recomendación recurrente en #fragtok para los meses de calor. Uno de los masculinos árabes más vendidos, punto.",
+  },
+  {
+    slug: "asad",
+    name: "Asad",
+    brand: "Lattafa",
+    family: "Amaderado ahumado",
+    gender: "Masculino",
+    tag: "Viral",
+    size: "100ml",
+    price: 65000,
+    liquidColor: "#6B6B76",
+    notes: {
+      salida: ["Bergamota", "Pimienta rosa"],
+      corazon: ["Lavanda", "Patchouli"],
+      fondo: ["Cuero", "Oud", "Ámbar"],
+    },
+    shortDescription: "El masculino estrella del 'smellmaxxing' en TikTok.",
+    description:
+      "Amaderado, ahumado y con carácter — el perfume que más aparece en los videos de hombres jóvenes compartiendo su rutina de fragancias. 'Asad' significa león en árabe, y se nota.",
+  },
+  {
+    slug: "asad-bourbon",
+    name: "Asad Bourbon",
+    brand: "Lattafa",
+    family: "Amaderado boozy",
+    gender: "Masculino",
+    tag: "Viral",
+    size: "100ml",
+    price: 72500,
+    liquidColor: "#C97A2E",
+    notes: {
+      salida: ["Bourbon", "Pimienta rosa"],
+      corazon: ["Patchouli", "Lavanda"],
+      fondo: ["Cuero", "Ámbar", "Oud"],
+    },
+    shortDescription: "El flanker boozy de Asad. De lleno en la tendencia whisky/bourbon.",
+    description:
+      "Todo el carácter de Asad con una nota de bourbon que lo vuelve más cálido y envolvente. Encaja directo en la ola de fragancias 'boozy' que domina las recomendaciones masculinas este año.",
+  },
+  {
+    slug: "eclaire",
+    name: "Eclaire",
+    brand: "Lattafa",
+    family: "Gourmand vainilla",
+    gender: "Femenino",
+    tag: "Viral",
+    size: "100ml",
+    price: 65000,
+    liquidColor: "#E8C36B",
+    notes: {
+      salida: ["Pera", "Bergamota"],
+      corazon: ["Praliné", "Jazmín"],
+      fondo: ["Vainilla", "Caramelo", "Tonka"],
+    },
+    shortDescription: "Uno de los de crecimiento más rápido en TikTok Shop.",
+    description:
+      "Vainilla cremosa y caramelo — un nombre que 'se huele' con solo leerlo. Es una de las fragancias con la curva de búsquedas más pronunciada del último año.",
+  },
+  {
+    slug: "eclaire-pistache",
+    name: "Eclaire Pistache",
+    brand: "Lattafa",
+    family: "Gourmand tostado",
+    gender: "Femenino",
+    tag: "Tendencia",
+    size: "100ml",
+    price: 72500,
+    liquidColor: "#8FBF4D",
+    notes: {
+      salida: ["Pistacho tostado"],
+      corazon: ["Praliné", "Flor de azahar"],
+      fondo: ["Vainilla", "Tonka"],
+    },
+    shortDescription: "El pistacho es LA nota de los 'savoury gourmands' de 2026.",
+    description:
+      "La variante tostada de Eclaire: pistacho y notas horneadas en vez de dulce puro. Los gourmands 'salados' — horneados, tostados — son la evolución que están empujando los perfumistas de nicho, y esta versión la trae accesible.",
+  },
+  {
+    slug: "fakhar-woman-rose",
+    name: "Fakhar Woman Rose",
+    brand: "Lattafa",
+    family: "Floral rosado",
+    similarTo: "Para fans de Delina (Parfums de Marly)",
+    gender: "Femenino",
+    tag: "Viral",
+    size: "100ml",
+    price: 77000,
+    liquidColor: "#E85D9E",
+    notes: {
+      salida: ["Lichi", "Ruibarbo"],
+      corazon: ["Peonía", "Rosa"],
+      fondo: ["Almizcle rosado", "Cedro"],
+    },
+    shortDescription: "El dupe viral de Delina más pedido en TikTok Shop.",
+    description:
+      "Peonía, lichi y un fondo de almizcle rosado — la estructura floral que hizo famoso a Delina, con muchísima rotación en redes por su relación precio-calidad.",
+  },
+  {
+    slug: "club-de-nuit-intense-man",
+    name: "Club de Nuit Intense Man",
+    brand: "Armaf",
+    family: "Frutal amaderado",
+    similarTo: "El dupe de Creed Aventus por excelencia",
+    gender: "Masculino",
+    tag: "Viral",
+    size: "105ml",
+    price: 77000,
+    liquidColor: "#3D5175",
+    notes: {
+      salida: ["Piña", "Bergamota", "Grosella negra"],
+      corazon: ["Abedul", "Jazmín"],
+      fondo: ["Almizcle", "Ambroxan", "Musgo de roble"],
+    },
+    shortDescription: "El favorito 'budget' de todas las listas de TikTok.",
+    description:
+      "La estructura frutal-amaderada que hizo famoso a Aventus, con la piña y el almizcle seco como protagonistas. Aparece en prácticamente todos los rankings de 'mejores perfumes económicos' de PerfumeTok.",
+  },
+  {
+    slug: "9pm-black",
+    name: "9pm Black",
+    brand: "Afnan",
+    family: "Oriental especiado",
+    gender: "Masculino",
+    tag: "Viral",
+    size: "100ml",
+    price: 72500,
+    liquidColor: "#6B4B8A",
+    notes: {
+      salida: ["Canela", "Especias"],
+      corazon: ["Cuero"],
+      fondo: ["Vainilla", "Tonka", "Ámbar"],
+    },
+    shortDescription: "Masculino dulce viral, uno de los más buscados en #fragtok.",
+    description:
+      "Especiado, dulce y con proyección larga — de los masculinos árabes con más presencia sostenida en redes, con varios flankers dando vueltas por si este engancha.",
+  },
+  {
+    slug: "kismet-magic",
+    name: "Kismet Magic",
+    brand: "Maison Alhambra",
+    family: "Floral ambarado",
+    gender: "Unisex",
+    tag: "Viral",
+    size: "100ml",
+    price: 45000,
+    liquidColor: "#B26BFF",
+    notes: {
+      salida: ["Bergamota", "Frutos rojos"],
+      corazon: ["Jazmín", "Flor de azahar"],
+      fondo: ["Ámbar", "Vainilla", "Almizcle"],
+    },
+    shortDescription: "La 'joya oculta' de 2026: de nicho a búsqueda masiva en semanas.",
+    description:
+      "El formato 'dupe reveal' lo sacó del anonimato en cuestión de semanas. Floral ambarado con muy buena relación precio-calidad — todavía tiene margen para crecer antes de saturarse.",
+  },
+  {
+    slug: "amber-oud-gold-edition",
+    name: "Amber Oud Gold Edition",
+    brand: "Al Haramain",
+    family: "Oud ahumado",
+    similarTo: "Estilo Ombré Nomade (Louis Vuitton)",
+    gender: "Unisex",
+    tag: "Viral",
+    size: "60ml",
+    price: 89000,
+    liquidColor: "#D4A93D",
+    notes: {
+      salida: ["Incienso"],
+      corazon: ["Oud ahumado"],
+      fondo: ["Vainilla", "Benjuí", "Maderas"],
+    },
+    shortDescription: "Árabe premium, estrella de #perfumearabe.",
+    description:
+      "Oud ahumado con un fondo cálido de vainilla y benjuí. Un escalón arriba en precio, pensado para quien ya probó los básicos árabes y quiere algo con más presencia.",
+  },
+  {
+    slug: "dubai-chocolate",
+    name: "Dubai Chocolate",
+    brand: "Anfar",
+    family: "Gourmand chocolate",
+    gender: "Unisex",
+    tag: "Tendencia",
+    size: "100ml",
+    price: 78500,
+    liquidColor: "#8A5A38",
+    notes: {
+      salida: ["Cacao"],
+      corazon: ["Pistacho", "Tahini"],
+      fondo: ["Vainilla", "Almizcle"],
+    },
+    shortDescription: "La ola 'chocolate Dubai' salta de lo viral en comida al perfume.",
+    description:
+      "Inspirado directamente en el postre que rompió todos los récords en redes: cacao, pistacho y tahini en formato perfume. Contenido asegurado para cualquier video de unboxing.",
+  },
+  {
+    slug: "bharara-king",
+    name: "King",
+    brand: "Bharara",
+    family: "Amaderado especiado premium",
+    gender: "Masculino",
+    tag: "Viral",
+    size: "100ml",
+    price: 146500,
+    liquidColor: "#C9A227",
+    notes: {
+      salida: ["Azafrán", "Canela"],
+      corazon: ["Cuero", "Oud"],
+      fondo: ["Ámbar", "Maderas preciosas"],
+    },
+    shortDescription: "Fenómeno de TikTok Shop: botella premium que rinde en video.",
+    description:
+      "El tope de gama del catálogo: amaderado especiado denso, con una estética de botella que es contenido en sí misma. Para el cliente que busca algo con más presencia y está dispuesto a pagar por eso.",
   },
 ];
 
 export function getProductBySlug(slug: string): Product | undefined {
   return products.find((product) => product.slug === slug);
+}
+
+export function getBrands(): string[] {
+  return Array.from(new Set(products.map((p) => p.brand))).sort();
 }
 
 export function formatPrice(value: number): string {

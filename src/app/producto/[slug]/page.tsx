@@ -26,7 +26,10 @@ export default async function ProductPage({ params }: { params: Params }) {
   const product = getProductBySlug(slug);
   if (!product) notFound();
 
-  const related = products.filter((p) => p.slug !== product.slug).slice(0, 4);
+  const related = products
+    .filter((p) => p.slug !== product.slug)
+    .sort((a, b) => Number(b.brand === product.brand) - Number(a.brand === product.brand))
+    .slice(0, 4);
 
   return (
     <div className="mx-auto max-w-6xl px-5 py-14">
@@ -46,18 +49,25 @@ export default async function ProductPage({ params }: { params: Params }) {
         <div>
           {product.tag && (
             <span className="mb-3 inline-block rounded-full bg-lime px-3 py-1 text-xs font-bold text-ink">
-              {product.tag}
+              {product.tag === "Viral" ? "🔥 Viral" : "📈 Tendencia"}
             </span>
           )}
-          <p className="text-sm uppercase tracking-wide text-muted">{product.family}</p>
+          <p className="text-sm uppercase tracking-wide text-muted">
+            {product.brand} · {product.family}
+          </p>
           <h1 className="font-display text-4xl font-bold">{product.name}</h1>
+          {product.similarTo && (
+            <p className="mt-1 text-sm font-medium text-violet-soft">{product.similarTo}</p>
+          )}
           <p className="mt-4 text-bone-dim">{product.description}</p>
 
           <div className="mt-6 flex items-baseline gap-3">
             <span className="font-display text-3xl font-bold text-lime">
               {formatPrice(product.price)}
             </span>
-            <span className="text-sm text-muted">{product.size} · Eau de Parfum</span>
+            <span className="text-sm text-muted">
+              {product.size} · Eau de Parfum · {product.gender}
+            </span>
           </div>
 
           <div className="mt-6">

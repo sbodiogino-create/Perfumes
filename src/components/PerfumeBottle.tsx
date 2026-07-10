@@ -4,12 +4,34 @@ type PerfumeBottleProps = {
   className?: string;
 };
 
+function splitLabel(name: string): string[] {
+  if (name.length <= 11) return [name];
+  const words = name.split(" ");
+  if (words.length === 1) return [name];
+
+  let bestSplit = 1;
+  let bestDiff = Infinity;
+  for (let i = 1; i < words.length; i++) {
+    const line1 = words.slice(0, i).join(" ");
+    const line2 = words.slice(i).join(" ");
+    const diff = Math.abs(line1.length - line2.length);
+    if (diff < bestDiff) {
+      bestDiff = diff;
+      bestSplit = i;
+    }
+  }
+  return [words.slice(0, bestSplit).join(" "), words.slice(bestSplit).join(" ")];
+}
+
 export default function PerfumeBottle({
   liquidColor,
   name,
   className,
 }: PerfumeBottleProps) {
   const gradientId = `liquid-${name.toLowerCase().replace(/\s+/g, "-")}`;
+  const lines = splitLabel(name);
+  const longestLine = Math.max(...lines.map((line) => line.length));
+  const fontSize = longestLine > 13 ? 10 : longestLine > 10 ? 12 : 15;
 
   return (
     <svg
@@ -58,15 +80,19 @@ export default function PerfumeBottle({
       <rect x="52" y="150" width="96" height="50" rx="4" fill="#0b0b0f" opacity="0.55" />
       <text
         x="100"
-        y="180"
+        y={lines.length > 1 ? 170 : 180}
         textAnchor="middle"
-        fontSize="15"
+        fontSize={fontSize}
         fontWeight="700"
         fill="#f4f2ec"
         fontFamily="var(--font-space-grotesk), sans-serif"
-        letterSpacing="1"
+        letterSpacing="0.5"
       >
-        {name}
+        {lines.map((line, i) => (
+          <tspan key={line} x="100" dy={i === 0 ? 0 : fontSize + 4}>
+            {line}
+          </tspan>
+        ))}
       </text>
 
       {/* highlight */}
