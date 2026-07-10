@@ -77,8 +77,8 @@ el access token de prueba por el de producción — no hace falta tocar código.
 
 ## Estado actual — qué es real y qué es placeholder
 
-- **Catálogo:** 20 productos **reales** (marca, costo, precio en ARS) curados a partir de `Estrategia_de_Precios__Perfumes.xlsx` — ver el criterio de selección completo en [`MARKETING.md`](./MARKETING.md#2-el-catálogo-de-lanzamiento--qué-se-vende-y-por-qué). Las notas olfativas y descripciones se redactaron a partir de conocimiento general de cada fragancia (son perfumes reales del mercado) — vale la pena que alguien del equipo las revise/ajuste antes de publicar.
-- **Imágenes de producto:** ilustraciones SVG generadas por código (no hay fotos reales todavía).
+- **Catálogo:** 20 productos **reales** (marca, costo, precio en ARS) curados a partir de `Estrategia_de_Precios__Perfumes.xlsx` — ver el criterio de selección completo en [`MARKETING.md`](./MARKETING.md#2-el-catálogo-de-lanzamiento--qué-se-vende-y-por-qué). Notas olfativas verificadas contra Fragrantica + una fuente adicional por producto (detalle de confianza y ambigüedades en el comentario inicial de `src/lib/products.ts`).
+- **Imágenes de producto:** ilustraciones SVG generadas por código. El sitio ya soporta fotos reales (`ProductImage`, con fallback automático si la foto falla), pero conseguirlas requiere acceso de red que este entorno de ejecución no tiene — plan y páginas candidatas por producto en [`IMAGENES.md`](./IMAGENES.md).
 - **Checkout:** el flujo completo funciona y ya está conectado a Mercado Pago Checkout Pro (ver sección de arriba); si no hay credenciales configuradas, se simula.
 - **Formulario de contacto:** no envía email todavía, solo muestra confirmación en pantalla.
 

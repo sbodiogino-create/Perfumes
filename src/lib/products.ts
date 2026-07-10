@@ -28,6 +28,17 @@ export type Product = {
 // stock inmovilizado. Los originales de diseñador de alta gama (Baccarat Rouge 540,
 // Good Girl, Born in Roma) quedan afuera del lanzamiento: inmovilizan mucho capital
 // por unidad y conviene sumarlos en una fase 2, cuando haya flujo de caja.
+//
+// Las notas olfativas (`notes`) fueron verificadas cruzando Fragrantica con al
+// menos una fuente adicional (sitio oficial de marca o retailer grande) para
+// cada producto. Confianza alta salvo: Yara Candy (una sola fuente), Ana
+// Abiyedh Rouge (reviewers reportan un perfil más especiado/almendrado que la
+// pirámide "oficial"), 9pm Black (existe ambigüedad entre "9pm" original y la
+// variante "Black" — verificar contra el frasco físico antes de publicar) y
+// Dubai Chocolate (nombre comercial de "Pistachio Kunafa" de Anfar 1950).
+// `image` queda sin completar para todo el catálogo: este entorno no tiene
+// acceso de red para descargar/verificar fotos reales — ver README para cómo
+// sumarlas.
 export const products: Product[] = [
   {
     slug: "khamrah",
@@ -40,9 +51,9 @@ export const products: Product[] = [
     price: 51000,
     liquidColor: "#E8A33D",
     notes: {
-      salida: ["Canela", "Dátiles"],
-      corazon: ["Praliné", "Tuberosa"],
-      fondo: ["Vainilla", "Benjuí", "Ámbar"],
+      salida: ["Canela", "Nuez moscada", "Bergamota"],
+      corazon: ["Dátiles", "Praliné", "Tuberosa"],
+      fondo: ["Vainilla", "Haba tonka", "Ámbar", "Benjuí"],
     },
     shortDescription: "El árabe más exitoso en la historia de PerfumeTok.",
     description:
@@ -59,9 +70,9 @@ export const products: Product[] = [
     price: 54000,
     liquidColor: "#FF6FB0",
     notes: {
-      salida: ["Pera", "Mandarina"],
-      corazon: ["Jazmín sambac", "Flor de azahar"],
-      fondo: ["Vainilla", "Cashmeran", "Caramelo"],
+      salida: ["Orquídea", "Heliotropo", "Mandarina"],
+      corazon: ["Acorde gourmand", "Frutas tropicales"],
+      fondo: ["Vainilla", "Almizcle", "Sándalo"],
     },
     shortDescription: "Cremoso, frutal y tropical. Viral hace años, no hace semanas.",
     description:
@@ -78,9 +89,9 @@ export const products: Product[] = [
     price: 49500,
     liquidColor: "#FF3DAE",
     notes: {
-      salida: ["Frutos rojos", "Caramelo"],
-      corazon: ["Flor de azahar", "Coco"],
-      fondo: ["Vainilla", "Almizcle"],
+      salida: ["Grosella negra", "Mandarina verde"],
+      corazon: ["Caramelo de fresa", "Gardenia"],
+      fondo: ["Vainilla", "Almizcle", "Ámbar", "Sándalo"],
     },
     shortDescription: "El flanker más dulce de Yara, empujando fuerte en TikTok Shop.",
     description:
@@ -97,9 +108,9 @@ export const products: Product[] = [
     price: 54000,
     liquidColor: "#A9713F",
     notes: {
-      salida: ["Canela", "Café"],
-      corazon: ["Dátiles", "Praliné"],
-      fondo: ["Vainilla", "Tonka", "Ámbar"],
+      salida: ["Canela", "Cardamomo", "Jengibre"],
+      corazon: ["Praliné", "Frutas confitadas", "Flores blancas"],
+      fondo: ["Vainilla", "Café", "Haba tonka", "Benjuí"],
     },
     shortDescription: "La ola 'boozy gourmand' con café que domina 2026.",
     description:
@@ -117,9 +128,9 @@ export const products: Product[] = [
     price: 43500,
     liquidColor: "#E0483D",
     notes: {
-      salida: ["Azafrán", "Jazmín"],
-      corazon: ["Madera de cedro"],
-      fondo: ["Ámbar cristalino", "Almizcle"],
+      salida: ["Pera nashi", "Kumquat", "Bergamota"],
+      corazon: ["Caramelo", "Geranio"],
+      fondo: ["Ámbar gris", "Almizcle", "Musgo de roble"],
     },
     shortDescription: "El dupe de Baccarat Rouge 540 más famoso de TikTok.",
     description:
@@ -136,9 +147,9 @@ export const products: Product[] = [
     price: 51000,
     liquidColor: "#9C6B3E",
     notes: {
-      salida: ["Pera", "Azafrán"],
-      corazon: ["Rosa", "Oud"],
-      fondo: ["Ámbar", "Almizcle", "Vainilla"],
+      salida: ["Azafrán", "Nuez moscada", "Lavanda"],
+      corazon: ["Oud", "Pachulí"],
+      fondo: ["Oud", "Pachulí", "Almizcle"],
     },
     shortDescription: "El clásico de PerfumeTok árabe: la puerta de entrada al oud.",
     description:
@@ -155,9 +166,9 @@ export const products: Product[] = [
     price: 55500,
     liquidColor: "#FF7AC6",
     notes: {
-      salida: ["Cereza", "Bergamota"],
-      corazon: ["Rosa", "Jazmín"],
-      fondo: ["Vainilla", "Almizcle"],
+      salida: ["Lichi", "Frambuesa", "Hoja de violeta"],
+      corazon: ["Rosa blanca", "Peonía", "Jazmín"],
+      fondo: ["Almizcle", "Vainilla"],
     },
     shortDescription: "El femenino árabe que aparece constantemente en PerfumeTok.",
     description:
@@ -174,9 +185,9 @@ export const products: Product[] = [
     price: 60000,
     liquidColor: "#7A6152",
     notes: {
-      salida: ["Canela", "Incienso"],
-      corazon: ["Dátiles ahumados"],
-      fondo: ["Vainilla ahumada", "Benjuí"],
+      salida: ["Especias", "Pimienta de Jamaica", "Mandarina"],
+      corazon: ["Incienso", "Láudano", "Azahar", "Pachulí"],
+      fondo: ["Praliné", "Tabaco", "Ámbar", "Haba tonka", "Benjuí"],
     },
     shortDescription: "\"Marshmallow gótico\": lo dulce se vuelve oscuro y ahumado.",
     description:
@@ -193,9 +204,9 @@ export const products: Product[] = [
     price: 60000,
     liquidColor: "#3DC7FF",
     notes: {
-      salida: ["Bergamota", "Pimienta rosa"],
-      corazon: ["Lavanda", "Notas marinas"],
-      fondo: ["Pachulí", "Almizcle"],
+      salida: ["Bergamota", "Manzana", "Canela", "Limón"],
+      corazon: ["Notas acuáticas", "Ciruela", "Azahar", "Cardamomo"],
+      fondo: ["Ámbar gris", "Almizcle", "Pachulí"],
     },
     shortDescription: "Acuático masculino árabe, viral de verano.",
     description:
@@ -212,9 +223,9 @@ export const products: Product[] = [
     price: 65000,
     liquidColor: "#6B6B76",
     notes: {
-      salida: ["Bergamota", "Pimienta rosa"],
-      corazon: ["Lavanda", "Patchouli"],
-      fondo: ["Cuero", "Oud", "Ámbar"],
+      salida: ["Pimienta negra", "Tabaco", "Piña"],
+      corazon: ["Pachulí", "Café", "Iris"],
+      fondo: ["Vainilla", "Ámbar", "Madera seca", "Láudano"],
     },
     shortDescription: "El masculino estrella del 'smellmaxxing' en TikTok.",
     description:
@@ -231,9 +242,9 @@ export const products: Product[] = [
     price: 72500,
     liquidColor: "#C97A2E",
     notes: {
-      salida: ["Bourbon", "Pimienta rosa"],
-      corazon: ["Patchouli", "Lavanda"],
-      fondo: ["Cuero", "Ámbar", "Oud"],
+      salida: ["Pimienta rosa", "Lavanda", "Ciruela mirabel"],
+      corazon: ["Cacao", "Davana", "Nuez moscada"],
+      fondo: ["Vetiver", "Vainilla bourbon", "Ámbar"],
     },
     shortDescription: "El flanker boozy de Asad. De lleno en la tendencia whisky/bourbon.",
     description:
@@ -250,9 +261,9 @@ export const products: Product[] = [
     price: 65000,
     liquidColor: "#E8C36B",
     notes: {
-      salida: ["Pera", "Bergamota"],
-      corazon: ["Praliné", "Jazmín"],
-      fondo: ["Vainilla", "Caramelo", "Tonka"],
+      salida: ["Caramelo", "Leche", "Azúcar"],
+      corazon: ["Flores blancas", "Miel dorada"],
+      fondo: ["Vainilla", "Praliné", "Almizcle"],
     },
     shortDescription: "Uno de los de crecimiento más rápido en TikTok Shop.",
     description:
@@ -269,9 +280,9 @@ export const products: Product[] = [
     price: 72500,
     liquidColor: "#8FBF4D",
     notes: {
-      salida: ["Pistacho tostado"],
-      corazon: ["Praliné", "Flor de azahar"],
-      fondo: ["Vainilla", "Tonka"],
+      salida: ["Pistacho", "Pistacho tostado"],
+      corazon: ["Cacao", "Crema batida", "Coco"],
+      fondo: ["Vainilla", "Leche", "Almizcle"],
     },
     shortDescription: "El pistacho es LA nota de los 'savoury gourmands' de 2026.",
     description:
@@ -289,9 +300,9 @@ export const products: Product[] = [
     price: 77000,
     liquidColor: "#E85D9E",
     notes: {
-      salida: ["Lichi", "Ruibarbo"],
-      corazon: ["Peonía", "Rosa"],
-      fondo: ["Almizcle rosado", "Cedro"],
+      salida: ["Frutas", "Lirio", "Granada"],
+      corazon: ["Tuberosa", "Jazmín", "Gardenia", "Rosa", "Peonía"],
+      fondo: ["Vainilla", "Almizcle blanco", "Sándalo", "Ambroxán"],
     },
     shortDescription: "El dupe viral de Delina más pedido en TikTok Shop.",
     description:
@@ -309,9 +320,9 @@ export const products: Product[] = [
     price: 77000,
     liquidColor: "#3D5175",
     notes: {
-      salida: ["Piña", "Bergamota", "Grosella negra"],
-      corazon: ["Abedul", "Jazmín"],
-      fondo: ["Almizcle", "Ambroxan", "Musgo de roble"],
+      salida: ["Limón", "Piña", "Bergamota", "Grosella negra"],
+      corazon: ["Abedul", "Jazmín", "Rosa"],
+      fondo: ["Almizcle", "Ámbar gris", "Pachulí"],
     },
     shortDescription: "El favorito 'budget' de todas las listas de TikTok.",
     description:
@@ -328,9 +339,9 @@ export const products: Product[] = [
     price: 72500,
     liquidColor: "#6B4B8A",
     notes: {
-      salida: ["Canela", "Especias"],
-      corazon: ["Cuero"],
-      fondo: ["Vainilla", "Tonka", "Ámbar"],
+      salida: ["Bergamota", "Lavandín", "Canela", "Manzana"],
+      corazon: ["Muguet", "Azahar"],
+      fondo: ["Pachulí", "Ámbar", "Vainilla", "Haba tonka"],
     },
     shortDescription: "Masculino dulce viral, uno de los más buscados en #fragtok.",
     description:
@@ -347,9 +358,9 @@ export const products: Product[] = [
     price: 45000,
     liquidColor: "#B26BFF",
     notes: {
-      salida: ["Bergamota", "Frutos rojos"],
-      corazon: ["Jazmín", "Flor de azahar"],
-      fondo: ["Ámbar", "Vainilla", "Almizcle"],
+      salida: ["Coñac"],
+      corazon: ["Canela", "Haba tonka", "Roble"],
+      fondo: ["Vainilla", "Praliné", "Sándalo"],
     },
     shortDescription: "La 'joya oculta' de 2026: de nicho a búsqueda masiva en semanas.",
     description:
@@ -367,9 +378,9 @@ export const products: Product[] = [
     price: 89000,
     liquidColor: "#D4A93D",
     notes: {
-      salida: ["Incienso"],
-      corazon: ["Oud ahumado"],
-      fondo: ["Vainilla", "Benjuí", "Maderas"],
+      salida: ["Bergamota", "Notas verdes"],
+      corazon: ["Melón", "Piña", "Ámbar"],
+      fondo: ["Almizcle", "Vainilla", "Maderas"],
     },
     shortDescription: "Árabe premium, estrella de #perfumearabe.",
     description:
@@ -386,9 +397,9 @@ export const products: Product[] = [
     price: 78500,
     liquidColor: "#8A5A38",
     notes: {
-      salida: ["Cacao"],
-      corazon: ["Pistacho", "Tahini"],
-      fondo: ["Vainilla", "Almizcle"],
+      salida: ["Pistacho", "Kunafa", "Frutos secos", "Caramelo"],
+      corazon: ["Haba tonka", "Cardamomo", "Tahini"],
+      fondo: ["Chocolate", "Vainilla", "Ámbar"],
     },
     shortDescription: "La ola 'chocolate Dubai' salta de lo viral en comida al perfume.",
     description:
@@ -405,9 +416,9 @@ export const products: Product[] = [
     price: 146500,
     liquidColor: "#C9A227",
     notes: {
-      salida: ["Azafrán", "Canela"],
-      corazon: ["Cuero", "Oud"],
-      fondo: ["Ámbar", "Maderas preciosas"],
+      salida: ["Naranja", "Bergamota", "Limón"],
+      corazon: ["Notas afrutadas"],
+      fondo: ["Vainilla", "Almizcle blanco", "Ámbar"],
     },
     shortDescription: "Fenómeno de TikTok Shop: botella premium que rinde en video.",
     description:

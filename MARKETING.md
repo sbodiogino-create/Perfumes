@@ -117,6 +117,12 @@ Grande), Pistachio Kunafa (Tubbees, vuelve cuando haya stock).
       reales de la cuenta de Mercado Pago del negocio.
 - [x] Catálogo con productos y precios reales (`src/lib/products.ts`), a partir
       de la estrategia de precios provista.
+- [x] Notas olfativas verificadas contra Fragrantica + una fuente adicional
+      por producto (ver el comentario al inicio de `src/lib/products.ts` para
+      los casos con menor confianza o ambigüedad de nombre).
+- [ ] Fotos reales de producto — el sitio ya soporta mostrarlas, pero
+      conseguirlas requiere acceso de red que este entorno no tiene. Plan y
+      lista de páginas candidatas por producto en [`IMAGENES.md`](./IMAGENES.md).
 - [ ] Conectar dominio propio (ej. `pulsoperfumes.com.ar`).
 - [ ] Configurar email transaccional (confirmación de pedido) — ej. Resend o SendGrid.
 - [ ] Fotos reales de producto (hoy son ilustraciones SVG generadas por código).
