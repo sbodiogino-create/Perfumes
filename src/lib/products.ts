@@ -262,6 +262,7 @@ export const products: Product[] = [
   },
   {
     slug: "asad-bourbon",
+    image: "/productos/asad-bourbon.png",
     name: "Asad Bourbon",
     brand: "Lattafa",
     category: "Árabes",
@@ -426,6 +427,7 @@ export const products: Product[] = [
   },
   {
     slug: "dubai-chocolate",
+    image: "/productos/dubai-chocolate.png",
     name: "Dubai Chocolate",
     brand: "Anfar",
     category: "Árabes",
