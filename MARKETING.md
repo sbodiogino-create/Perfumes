@@ -88,7 +88,10 @@
 
 ## 8. Próximos pasos técnicos para completar el e-commerce
 
-- [ ] Conectar pasarela de pago real (Mercado Pago Checkout Pro es la opción más simple para Argentina).
+- [x] Conectar pasarela de pago real — el checkout ya llama a Mercado Pago
+      Checkout Pro (`src/app/api/checkout/route.ts`). Solo falta cargar
+      `MERCADOPAGO_ACCESS_TOKEN` (ver `.env.example`) con las credenciales
+      reales de la cuenta de Mercado Pago del negocio.
 - [ ] Conectar dominio propio (ej. `pulsoperfumes.com.ar`).
 - [ ] Configurar email transaccional (confirmación de pedido) — ej. Resend o SendGrid.
 - [ ] Reemplazar precios/productos placeholder por el catálogo real y fotos de producto.

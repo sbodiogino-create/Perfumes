@@ -18,6 +18,9 @@ npm run dev
 
 Abrí [http://localhost:3000](http://localhost:3000).
 
+Para probar pagos reales con Mercado Pago, copiá `.env.example` a `.env.local`
+y completá `MERCADOPAGO_ACCESS_TOKEN` (ver sección de Checkout más abajo).
+
 Otros comandos:
 
 ```bash
@@ -35,7 +38,8 @@ src/
     tienda/                  # Catálogo con filtros
     producto/[slug]/         # Detalle de producto
     carrito/                 # Carrito
-    checkout/                # Checkout simulado + confirmación
+    checkout/                # Checkout + confirmación
+    api/checkout/route.ts    # Crea la preferencia de pago en Mercado Pago
     nosotros/                # Historia de marca
     contacto/                # Formulario de contacto
   components/                # Navbar, Footer, ProductCard, PerfumeBottle, etc.
@@ -43,15 +47,39 @@ src/
     products.ts               # Catálogo de productos (placeholder)
     cart-store.ts              # Estado global del carrito (Zustand)
     order.ts                   # Generación de ID de pedido
+    mercadopago.ts             # Cliente de Mercado Pago (server-side)
 marketing/                    # Flyers listos para Instagram/impresión
 MARKETING.md                  # Plan de publicidad, contenido y lanzamiento
 ```
+
+## Checkout y pagos (Mercado Pago)
+
+El checkout está conectado a **Mercado Pago Checkout Pro**:
+
+1. Al confirmar el pedido con "Mercado Pago" como método de pago, el cliente
+   llama a `POST /api/checkout` con los `slug`/cantidad del carrito.
+2. El servidor recalcula los precios desde `src/lib/products.ts` (nunca confía
+   en precios enviados por el cliente), crea una preferencia con el SDK
+   oficial de Mercado Pago y devuelve la URL de pago.
+3. El navegador redirige a esa URL para completar el pago real.
+
+Si `MERCADOPAGO_ACCESS_TOKEN` **no** está configurado, el endpoint responde
+`501` y el sitio cae automáticamente al flujo simulado (útil para demos o
+mientras todavía no se dio de alta la cuenta de Mercado Pago del negocio).
+
+Para probarlo con credenciales de prueba:
+1. Creá una app en el [panel de desarrolladores de Mercado Pago](https://www.mercadopago.com.ar/developers/panel/app).
+2. Copiá el *access token* de prueba (empieza con `TEST-`) a `MERCADOPAGO_ACCESS_TOKEN` en `.env.local`.
+3. Usá una [tarjeta de prueba](https://www.mercadopago.com.ar/developers/es/docs/checkout-pro/additional-content/test-cards) para completar el pago en sandbox.
+
+Cuando el negocio tenga cuenta real de Mercado Pago, solo hay que reemplazar
+el access token de prueba por el de producción — no hace falta tocar código.
 
 ## Estado actual — qué es real y qué es placeholder
 
 - **Catálogo:** 8 fragancias ficticias con nombres, notas y precios de referencia en `src/lib/products.ts`. Reemplazar por el catálogo real cuando esté definido.
 - **Imágenes de producto:** ilustraciones SVG generadas por código (no hay fotos reales todavía).
-- **Checkout:** el flujo completo funciona (carrito → datos de envío → confirmación), pero **no procesa pagos reales**. Está preparado para conectar Mercado Pago Checkout Pro.
+- **Checkout:** el flujo completo funciona y ya está conectado a Mercado Pago Checkout Pro (ver sección de arriba); si no hay credenciales configuradas, se simula.
 - **Formulario de contacto:** no envía email todavía, solo muestra confirmación en pantalla.
 
 Ver la sección "Próximos pasos técnicos" en [`MARKETING.md`](./MARKETING.md) para el detalle de qué falta conectar antes de lanzar en producción.

@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { useCartStore, cartTotal } from "@/lib/cart-store";
 import { formatPrice, getProductBySlug } from "@/lib/products";
 import { generateOrderId } from "@/lib/order";
+import { redirectTo } from "@/lib/navigate";
 import { useHasMounted } from "@/lib/use-has-mounted";
 
 const SHIPPING_COST = 4500;
@@ -27,7 +28,7 @@ export default function CheckoutPage() {
   const subtotal = cartTotal(items);
   const total = subtotal + (rows.length ? SHIPPING_COST : 0);
 
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     if (rows.length === 0) return;
     setSubmitting(true);
@@ -48,6 +49,31 @@ export default function CheckoutPage() {
 
     sessionStorage.setItem("pulso-last-order", JSON.stringify(order));
 
+    if (paymentMethod === "mercadopago") {
+      try {
+        const response = await fetch("/api/checkout", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            items: rows.map(({ item }) => ({ slug: item.slug, quantity: item.quantity })),
+          }),
+        });
+
+        if (response.ok) {
+          const data = (await response.json()) as { checkoutUrl?: string };
+          if (data.checkoutUrl) {
+            clear();
+            redirectTo(data.checkoutUrl);
+            return;
+          }
+        }
+        // 501 = Mercado Pago no está configurado todavía (falta MERCADOPAGO_ACCESS_TOKEN).
+        // Seguimos con el flujo simulado para no bloquear la demo del sitio.
+      } catch (error) {
+        console.error("No se pudo iniciar el pago con Mercado Pago", error);
+      }
+    }
+
     setTimeout(() => {
       clear();
       router.push("/checkout/confirmacion");
@@ -67,8 +93,10 @@ export default function CheckoutPage() {
     <div className="mx-auto max-w-5xl px-5 py-14">
       <h1 className="font-display text-4xl font-bold">Checkout</h1>
       <p className="mt-2 text-sm text-muted">
-        Esto es una simulación de compra. No se procesa ningún pago real todavía —
-        el botón queda listo para conectar Mercado Pago.
+        Si elegís Mercado Pago y el sitio ya tiene credenciales configuradas
+        (<code className="text-bone-dim">MERCADOPAGO_ACCESS_TOKEN</code>), te redirigimos al
+        Checkout Pro real. Si todavía no se configuró, el pedido se simula para
+        poder mostrar el flujo completo.
       </p>
 
       <form onSubmit={handleSubmit} className="mt-8 grid gap-10 lg:grid-cols-3">
