@@ -98,6 +98,7 @@ export const products: Product[] = [
   },
   {
     slug: "yara-candy",
+    image: "/productos/yara-candy.webp",
     name: "Yara Candy",
     brand: "Lattafa",
     category: "Árabes",

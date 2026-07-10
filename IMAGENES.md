@@ -1,6 +1,6 @@
 # Fotos de producto — estado
 
-## Estado actual: 16 de 20 con foto real confirmada
+## Estado actual: 17 de 20 con foto real confirmada
 
 El usuario fue mandando fotos de producto por chat y las fuimos cruzando
 contra el catálogo. Están en `public/productos/<slug>.png` y cargadas en
@@ -10,7 +10,7 @@ contra el catálogo. Están en `public/productos/<slug>.png` y cargadas en
 |---|---|---|
 | Khamrah | ✅ | |
 | Yara (Pink) | ✅ | |
-| Yara Candy | ⬜ | falta |
+| Yara Candy | ✅ | |
 | Khamrah Qahwa | ✅ | |
 | Ana Abiyedh Rouge | ✅ | |
 | Bade'e Al Oud For Glory | ✅ | |
@@ -44,8 +44,8 @@ contra el nombre del producto, y se copiaron a `public/productos/`.
 
 ## Qué falta
 
-4 productos sin foto todavía: **Yara Candy, Asad Bourbon, Eclaire Pistache,
-Dubai Chocolate**. Sirve cualquier foto de producto con fondo claro/blanco —
+3 productos sin foto todavía: **Asad Bourbon, Eclaire Pistache, Dubai
+Chocolate**. Sirve cualquier foto de producto con fondo claro/blanco —
 el componente `ProductImage` la muestra sobre una tarjeta blanca redondeada
 consistente con el resto del catálogo, y si falla al cargar cae de vuelta a
 la ilustración SVG automáticamente.
