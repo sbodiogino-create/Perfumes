@@ -1,7 +1,7 @@
 export default function WhatsAppButton() {
   return (
     <a
-      href="https://wa.me/5491100000000?text=Hola%2C%20quiero%20consultar%20sobre%20PULSO%20Perfumes"
+      href="https://wa.me/5493464559293?text=Hola%2C%20quiero%20consultar%20sobre%20PULSO%20Perfumes"
       target="_blank"
       rel="noopener noreferrer"
       className="fixed bottom-5 right-5 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-lime text-ink shadow-lg shadow-lime/20 transition hover:scale-105"

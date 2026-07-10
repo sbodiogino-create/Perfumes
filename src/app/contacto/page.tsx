@@ -19,11 +19,7 @@ export default function ContactoPage() {
         <div className="space-y-6">
           <div>
             <p className="text-sm font-semibold text-lime">WhatsApp</p>
-            <p className="mt-1 text-bone-dim">+54 9 11 0000-0000</p>
-          </div>
-          <div>
-            <p className="text-sm font-semibold text-lime">Email</p>
-            <p className="mt-1 text-bone-dim">hola@pulsoperfumes.com.ar</p>
+            <p className="mt-1 text-bone-dim">+54 9 3464 55-9293</p>
           </div>
           <div>
             <p className="text-sm font-semibold text-lime">Instagram / TikTok</p>
@@ -32,8 +28,7 @@ export default function ContactoPage() {
           <div>
             <p className="text-sm font-semibold text-lime">Envíos</p>
             <p className="mt-1 text-bone-dim">
-              A todo el país por Correo Argentino y Andreani. Retiro en CABA
-              coordinando por WhatsApp.
+              A todo el país por Correo Argentino y Andreani.
             </p>
           </div>
         </div>

@@ -8,28 +8,27 @@ export default function NosotrosPage() {
       <h1 className="font-display text-4xl font-bold">Nuestra historia</h1>
       <div className="prose-invert mt-6 space-y-5 text-bone-dim">
         <p>
-          Hay cientos de perfumes árabes y de nicho circulando en Argentina, y
-          la mayoría de las tiendas online suben todo el catálogo del mayorista
-          tal cual les llega: quinientas fragancias, sin filtro, sin criterio.
-          Nosotros hacemos exactamente lo contrario.
+          Creemos que oler bien no tiene por qué ser un lujo. En Argentina,
+          perfumarse todos los días suele significar pagar de más por un
+          nombre — nosotros preferimos otro camino.
         </p>
         <p>
-          PULSO existe para curar, no para amontonar. Cruzamos lo que se está
-          volviendo viral en TikTok e Instagram con precios reales de mercado
-          en Argentina, y solo dejamos entrar al catálogo lo que ya demostró
-          demanda: perfumes que la gente busca, compara y termina comprando.
-          Nada de listas eternas que nadie termina de mirar.
+          En PULSO vas a encontrar fragancias árabes y de diseñador con una
+          calidad que compite de igual a igual con las marcas más caras, a
+          precios pensados para poder usarlas todos los días, no solo para
+          una ocasión especial. Buscamos lo mejor de cada casa, lo probamos
+          nosotros mismos, y lo traemos al mejor precio posible.
         </p>
         <p>
-          Eso también significa que no vamos a tener todo. Vas a encontrar los
-          dupes árabes que dominan PerfumeTok (Khamrah, Yara, Asad, el clásico
-          dupe de Baccarat Rouge 540) y algunas piezas premium para cuando
-          quieras subir la apuesta — pero no vamos a llenar la tienda de
-          productos que nadie pide solo para que la lista se vea más larga.
+          No creemos en llenar la tienda de productos solo para que la lista
+          se vea más larga. Preferimos un catálogo más chico pero elegido con
+          cariño: cada fragancia que vendemos es una que nos gusta de verdad
+          y que sabemos que vale lo que cuesta.
         </p>
         <p>
-          El catálogo se actualiza a medida que cambian las tendencias. Si algo
-          deja de rotar, sale. Si algo nuevo explota en redes, entra.
+          Nuestro objetivo es simple: que encuentres tu perfume ideal sin
+          vaciar el bolsillo, y que cada vez que lo uses, te sientas bien con
+          vos mismo.
         </p>
         <p className="font-display text-xl font-bold text-bone">
           Sentí tu pulso.

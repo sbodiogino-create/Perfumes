@@ -45,7 +45,7 @@ export default async function ProductPage({ params }: { params: Params }) {
         <div>
           {product.tag && (
             <span className="mb-3 inline-block rounded-full bg-lime px-3 py-1 text-xs font-bold text-ink">
-              {product.tag === "Viral" ? "🔥 Viral" : "📈 Tendencia"}
+              {product.tag === "Viral" ? "🔥" : "📈 Tendencia"}
             </span>
           )}
           <p className="text-sm uppercase tracking-wide text-muted">

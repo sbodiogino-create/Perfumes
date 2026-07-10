@@ -40,8 +40,7 @@ export default async function TiendaPage({
       <div className="mb-8">
         <h1 className="font-display text-4xl font-bold">Tienda</h1>
         <p className="mt-2 text-bone-dim">
-          {products.length} fragancias curadas, organizadas en dos mundos: árabes
-          virales y, más adelante, piezas de diseñador.
+          Perfumes árabes y de diseñador a los mejores precios.
         </p>
       </div>
 
@@ -126,7 +125,7 @@ export default async function TiendaPage({
                   tag === t ? "border-lime text-lime" : "border-line text-bone-dim hover:border-lime hover:text-lime"
                 }`}
               >
-                {t === "Viral" ? "🔥 Viral" : "📈 Tendencia"}
+                {t === "Viral" ? "🔥" : "📈 Tendencia"}
               </a>
             ))}
           </div>

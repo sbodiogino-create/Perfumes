@@ -24,23 +24,27 @@ export type Product = {
   shortDescription: string;
 };
 
-// Catálogo curado a partir de "Estrategia de Precios - Perfumes": de ~558 productos
-// mayoristas disponibles, esta selección prioriza fragancias con demanda probada
-// en TikTok/Instagram (columna "Virales TikTok"), buen margen y bajo riesgo de
-// stock inmovilizado. Los originales de diseñador de alta gama (Baccarat Rouge 540,
-// Good Girl, Born in Roma) quedan afuera del lanzamiento: inmovilizan mucho capital
-// por unidad y conviene sumarlos en una fase 2, cuando haya flujo de caja. Por eso
-// hoy `category` es "Árabes" en los 20 productos — la categoría "Diseñador" queda
-// armada en el sitio (tienda, filtros) para activarla apenas se sume el primer
-// producto de esa fase 2.
+// Selección a partir de "Estrategia de Precios - Perfumes": de ~558 productos
+// mayoristas disponibles, priorizando fragancias con buena rotación y bajo
+// riesgo de stock inmovilizado. Los originales de diseñador de alta gama
+// (Baccarat Rouge 540, Good Girl, Born in Roma) quedan afuera del
+// lanzamiento: inmovilizan mucho capital por unidad y conviene sumarlos en
+// una fase 2, cuando haya flujo de caja. Por eso hoy `category` es "Árabes"
+// en los 20 productos — la categoría "Diseñador" queda armada en el sitio
+// (tienda, filtros) para activarla apenas se sume el primer producto de esa
+// fase 2.
 //
-// Las notas olfativas (`notes`) fueron verificadas cruzando Fragrantica con al
-// menos una fuente adicional (sitio oficial de marca o retailer grande) para
-// cada producto. Confianza alta salvo: Yara Candy (una sola fuente), Ana
-// Abiyedh Rouge (reviewers reportan un perfil más especiado/almendrado que la
-// pirámide "oficial") y Dubai Chocolate (nombre comercial de "Pistachio
-// Kunafa" de Anfar 1950). 9pm Black fue confirmado contra el frasco físico
-// por el dueño del negocio.
+// `tag: "Viral"` se dejó solo en un puñado de productos (no en todos) para
+// que siga siendo una señal real y no un sello genérico. `tag: "Tendencia"`
+// se mantiene en los 3 productos originales.
+//
+// Las notas olfativas (`notes`) fueron verificadas cruzando Fragrantica con
+// al menos una fuente adicional (sitio oficial de marca o retailer grande)
+// para cada producto. Confianza alta salvo: Yara Candy (una sola fuente),
+// Ana Abiyedh Rouge (reviewers reportan un perfil más especiado/almendrado
+// que la pirámide "oficial") y Dubai Chocolate (nombre comercial de
+// "Pistachio Kunafa" de Anfar 1950). 9pm Black fue confirmado contra el
+// frasco físico por el dueño del negocio.
 //
 // `image` apunta a fotos reales del frasco (public/productos/<slug>.png)
 // confirmadas contra el producto físico. Amber Oud Gold Edition se cargó en
@@ -67,9 +71,9 @@ export const products: Product[] = [
       corazon: ["Dátiles", "Praliné", "Tuberosa"],
       fondo: ["Vainilla", "Haba tonka", "Ámbar", "Benjuí"],
     },
-    shortDescription: "El árabe más exitoso en la historia de PerfumeTok.",
+    shortDescription: "Canela, dátiles y un fondo cálido de vainilla y ámbar.",
     description:
-      "Canela, dátiles y una base de vainilla y ámbar que sigue dominando PerfumeTok desde que se lanzó. Es el perfume que más veces vas a ver recomendado en redes — y el que más rápido se vende en cualquier catálogo árabe.",
+      "Un ambarado gourmand cálido y envolvente: canela y dátiles en la salida, con un fondo de vainilla, ámbar y benjuí que se queda horas en la piel. El favorito de la casa — el primero en agotarse.",
   },
   {
     slug: "yara-pink",
@@ -88,9 +92,9 @@ export const products: Product[] = [
       corazon: ["Acorde gourmand", "Frutas tropicales"],
       fondo: ["Vainilla", "Almizcle", "Sándalo"],
     },
-    shortDescription: "Cremoso, frutal y tropical. Viral hace años, no hace semanas.",
+    shortDescription: "Cremoso, frutal y floral. El clásico que nunca pasa de moda.",
     description:
-      "Vainilla cremosa con un golpe frutal tropical. La mayoría de los virales de TikTok duran unas semanas — Yara lleva años vigente y sigue siendo de los más pedidos en cualquier búsqueda de perfumes árabes.",
+      "Vainilla cremosa con un golpe frutal de mandarina y un corazón floral suave. Fresco al principio, dulce y envolvente después — uno de los perfumes más queridos de la casa.",
   },
   {
     slug: "yara-candy",
@@ -99,7 +103,6 @@ export const products: Product[] = [
     category: "Árabes",
     family: "Gourmand dulce",
     gender: "Femenino",
-    tag: "Viral",
     size: "100ml",
     price: 49500,
     liquidColor: "#FF3DAE",
@@ -108,9 +111,9 @@ export const products: Product[] = [
       corazon: ["Caramelo de fresa", "Gardenia"],
       fondo: ["Vainilla", "Almizcle", "Ámbar", "Sándalo"],
     },
-    shortDescription: "El flanker más dulce de Yara, empujando fuerte en TikTok Shop.",
+    shortDescription: "La versión más golosa de Yara, con caramelo y gardenia.",
     description:
-      "La versión más golosa de Yara: caramelo y coco sobre la misma base de vainilla que la hizo famosa. Ideal para quien busca algo todavía más dulce y llamativo.",
+      "Grosella negra y mandarina verde en la salida, caramelo de fresa y gardenia en el corazón, sobre la misma base de vainilla que hizo famosa a Yara. Para quien busca algo todavía más dulce.",
   },
   {
     slug: "khamrah-qahwa",
@@ -118,9 +121,8 @@ export const products: Product[] = [
     name: "Khamrah Qahwa",
     brand: "Lattafa",
     category: "Árabes",
-    family: "Gourmand boozy con café",
+    family: "Gourmand con café",
     gender: "Unisex",
-    tag: "Viral",
     size: "100ml",
     price: 54000,
     liquidColor: "#A9713F",
@@ -129,9 +131,9 @@ export const products: Product[] = [
       corazon: ["Praliné", "Frutas confitadas", "Flores blancas"],
       fondo: ["Vainilla", "Café", "Haba tonka", "Benjuí"],
     },
-    shortDescription: "La ola 'boozy gourmand' con café que domina 2026.",
+    shortDescription: "Khamrah con una nota de café intensa y envolvente.",
     description:
-      "Todo lo que hizo viral a Khamrah, más una nota de café intensa que lo vuelve más oscuro y adictivo. Los gourmands con notas de licor y café son de lo más buscado este año.",
+      "Canela, cardamomo y jengibre se encuentran con café y dátiles confitados, sobre un fondo de vainilla y haba tonka. Más oscuro y adictivo que el Khamrah original.",
   },
   {
     slug: "ana-abiyedh-rouge",
@@ -151,9 +153,9 @@ export const products: Product[] = [
       corazon: ["Caramelo", "Geranio"],
       fondo: ["Ámbar gris", "Almizcle", "Musgo de roble"],
     },
-    shortDescription: "El dupe de Baccarat Rouge 540 más famoso de TikTok.",
+    shortDescription: "Ambarado especiado, cálido y con muchísima proyección.",
     description:
-      "El acorde ambarado-especiado que hizo mundialmente famoso a Baccarat Rouge 540, a una fracción del precio. Es, literalmente, el hashtag #br540dupes más repetido en TikTok — y nuestra puerta de entrada más accesible.",
+      "Pera nashi y kumquat en la salida, un corazón de caramelo y geranio, y un fondo de ámbar gris y musgo de roble que se siente en la piel horas después. Nuestra fragancia ambarada más pedida.",
   },
   {
     slug: "badee-al-oud-for-glory",
@@ -163,7 +165,6 @@ export const products: Product[] = [
     category: "Árabes",
     family: "Oud floral",
     gender: "Unisex",
-    tag: "Viral",
     size: "100ml",
     price: 51000,
     liquidColor: "#9C6B3E",
@@ -172,9 +173,9 @@ export const products: Product[] = [
       corazon: ["Oud", "Pachulí"],
       fondo: ["Oud", "Pachulí", "Almizcle"],
     },
-    shortDescription: "El clásico de PerfumeTok árabe: la puerta de entrada al oud.",
+    shortDescription: "Oud suave con rosa y azafrán. Ideal para empezar con el oud.",
     description:
-      "Oud suavizado con rosa y vainilla, pensado para quien nunca probó una fragancia arábiga y quiere empezar por el clásico que todo el mundo recomienda antes de ir a algo más intenso.",
+      "Azafrán, nuez moscada y lavanda dan paso a un corazón de oud y pachulí, sobre un fondo cálido de ámbar y almizcle. Pensado para quien nunca probó una fragancia arábiga y quiere empezar por la puerta más amable.",
   },
   {
     slug: "mayar",
@@ -184,7 +185,6 @@ export const products: Product[] = [
     category: "Árabes",
     family: "Floral afrutado",
     gender: "Femenino",
-    tag: "Viral",
     size: "100ml",
     price: 55500,
     liquidColor: "#FF7AC6",
@@ -193,9 +193,9 @@ export const products: Product[] = [
       corazon: ["Rosa blanca", "Peonía", "Jazmín"],
       fondo: ["Almizcle", "Vainilla"],
     },
-    shortDescription: "El femenino árabe que aparece constantemente en PerfumeTok.",
+    shortDescription: "Floral afrutado, femenino y delicado.",
     description:
-      "Floral frutado con un corazón de rosa y jazmín. Es una de las recomendaciones más constantes dentro del universo de perfumes árabes femeninos en redes.",
+      "Lichi, frambuesa y un toque verde de violeta en la salida, con un corazón de rosa blanca, peonía y jazmín sobre una base de almizcle y vainilla. Elegante sin ser empalagoso.",
   },
   {
     slug: "khamrah-dukhan",
@@ -214,9 +214,9 @@ export const products: Product[] = [
       corazon: ["Incienso", "Láudano", "Azahar", "Pachulí"],
       fondo: ["Praliné", "Tabaco", "Ámbar", "Haba tonka", "Benjuí"],
     },
-    shortDescription: "\"Marshmallow gótico\": lo dulce se vuelve oscuro y ahumado.",
+    shortDescription: "La versión ahumada de Khamrah: dulce y oscuro a la vez.",
     description:
-      "La versión ahumada de Khamrah — 'dukhan' significa humo en árabe. Las búsquedas de perfumes con nota marshmallow crecieron más de 240% este año, y esta variante le suma una capa oscura que la está empujando fuerte en tendencias.",
+      "Especias y pimienta de Jamaica sobre un corazón de incienso y azahar, con un fondo de tabaco, ámbar y haba tonka. 'Dukhan' significa humo en árabe — y se nota desde el primer momento.",
   },
   {
     slug: "hawas-him",
@@ -226,7 +226,6 @@ export const products: Product[] = [
     category: "Árabes",
     family: "Acuático especiado",
     gender: "Masculino",
-    tag: "Viral",
     size: "100ml",
     price: 60000,
     liquidColor: "#3DC7FF",
@@ -235,9 +234,9 @@ export const products: Product[] = [
       corazon: ["Notas acuáticas", "Ciruela", "Azahar", "Cardamomo"],
       fondo: ["Ámbar gris", "Almizcle", "Pachulí"],
     },
-    shortDescription: "Acuático masculino árabe, viral de verano.",
+    shortDescription: "Acuático y especiado, ideal para el verano.",
     description:
-      "Fresco, especiado y con proyección marina — una recomendación recurrente en #fragtok para los meses de calor. Uno de los masculinos árabes más vendidos, punto.",
+      "Bergamota, manzana y canela en la salida, con un corazón acuático de azahar y cardamomo sobre un fondo de ámbar gris y pachulí. Fresco, versátil y de muy buena proyección.",
   },
   {
     slug: "asad",
@@ -256,9 +255,9 @@ export const products: Product[] = [
       corazon: ["Pachulí", "Café", "Iris"],
       fondo: ["Vainilla", "Ámbar", "Madera seca", "Láudano"],
     },
-    shortDescription: "El masculino estrella del 'smellmaxxing' en TikTok.",
+    shortDescription: "Amaderado ahumado con carácter. Un favorito masculino.",
     description:
-      "Amaderado, ahumado y con carácter — el perfume que más aparece en los videos de hombres jóvenes compartiendo su rutina de fragancias. 'Asad' significa león en árabe, y se nota.",
+      "Pimienta negra, tabaco y piña dan paso a un corazón de pachulí, café e iris, sobre un fondo de vainilla, ámbar y madera seca. 'Asad' significa león en árabe — y tiene la presencia para justificarlo.",
   },
   {
     slug: "asad-bourbon",
@@ -267,7 +266,6 @@ export const products: Product[] = [
     category: "Árabes",
     family: "Amaderado boozy",
     gender: "Masculino",
-    tag: "Viral",
     size: "100ml",
     price: 72500,
     liquidColor: "#C97A2E",
@@ -276,9 +274,9 @@ export const products: Product[] = [
       corazon: ["Cacao", "Davana", "Nuez moscada"],
       fondo: ["Vetiver", "Vainilla bourbon", "Ámbar"],
     },
-    shortDescription: "El flanker boozy de Asad. De lleno en la tendencia whisky/bourbon.",
+    shortDescription: "El mismo carácter de Asad, con una nota cálida de bourbon.",
     description:
-      "Todo el carácter de Asad con una nota de bourbon que lo vuelve más cálido y envolvente. Encaja directo en la ola de fragancias 'boozy' que domina las recomendaciones masculinas este año.",
+      "Pimienta rosa, lavanda y ciruela dan paso a un corazón de cacao y nuez moscada, sobre un fondo de vetiver y vainilla bourbon. Más cálido y envolvente que el Asad original.",
   },
   {
     slug: "eclaire",
@@ -288,7 +286,6 @@ export const products: Product[] = [
     category: "Árabes",
     family: "Gourmand vainilla",
     gender: "Femenino",
-    tag: "Viral",
     size: "100ml",
     price: 65000,
     liquidColor: "#E8C36B",
@@ -297,9 +294,9 @@ export const products: Product[] = [
       corazon: ["Flores blancas", "Miel dorada"],
       fondo: ["Vainilla", "Praliné", "Almizcle"],
     },
-    shortDescription: "Uno de los de crecimiento más rápido en TikTok Shop.",
+    shortDescription: "Gourmand de vainilla y caramelo, dulce sin empalagar.",
     description:
-      "Vainilla cremosa y caramelo — un nombre que 'se huele' con solo leerlo. Es una de las fragancias con la curva de búsquedas más pronunciada del último año.",
+      "Caramelo, leche y azúcar en la salida, con un corazón de flores blancas y miel dorada sobre un fondo de vainilla y praliné. Un postre en forma de perfume.",
   },
   {
     slug: "eclaire-pistache",
@@ -317,9 +314,9 @@ export const products: Product[] = [
       corazon: ["Cacao", "Crema batida", "Coco"],
       fondo: ["Vainilla", "Leche", "Almizcle"],
     },
-    shortDescription: "El pistacho es LA nota de los 'savoury gourmands' de 2026.",
+    shortDescription: "La variante tostada de Eclaire, con pistacho y cacao.",
     description:
-      "La variante tostada de Eclaire: pistacho y notas horneadas en vez de dulce puro. Los gourmands 'salados' — horneados, tostados — son la evolución que están empujando los perfumistas de nicho, y esta versión la trae accesible.",
+      "Pistacho tostado en la salida, un corazón de cacao, crema batida y coco, sobre la misma base de vainilla y almizcle de Eclaire. Menos dulce, más untuoso.",
   },
   {
     slug: "fakhar-woman-rose",
@@ -328,9 +325,8 @@ export const products: Product[] = [
     brand: "Lattafa",
     category: "Árabes",
     family: "Floral rosado",
-    similarTo: "Para fans de Delina (Parfums de Marly)",
+    similarTo: "Para fans de Delina, de Parfums de Marly",
     gender: "Femenino",
-    tag: "Viral",
     size: "100ml",
     price: 77000,
     liquidColor: "#E85D9E",
@@ -339,9 +335,9 @@ export const products: Product[] = [
       corazon: ["Tuberosa", "Jazmín", "Gardenia", "Rosa", "Peonía"],
       fondo: ["Vainilla", "Almizcle blanco", "Sándalo", "Ambroxán"],
     },
-    shortDescription: "El dupe viral de Delina más pedido en TikTok Shop.",
+    shortDescription: "Floral rosado, elegante y con mucha proyección.",
     description:
-      "Peonía, lichi y un fondo de almizcle rosado — la estructura floral que hizo famoso a Delina, con muchísima rotación en redes por su relación precio-calidad.",
+      "Frutas, lirio y granada en la salida, con un corazón denso de tuberosa, jazmín, gardenia y rosa sobre un fondo de vainilla, almizcle blanco y sándalo. Uno de los florales más completos de la casa.",
   },
   {
     slug: "club-de-nuit-intense-man",
@@ -350,7 +346,7 @@ export const products: Product[] = [
     brand: "Armaf",
     category: "Árabes",
     family: "Frutal amaderado",
-    similarTo: "El dupe de Creed Aventus por excelencia",
+    similarTo: "Para fans de Creed Aventus",
     gender: "Masculino",
     tag: "Viral",
     size: "105ml",
@@ -361,9 +357,9 @@ export const products: Product[] = [
       corazon: ["Abedul", "Jazmín", "Rosa"],
       fondo: ["Almizcle", "Ámbar gris", "Pachulí"],
     },
-    shortDescription: "El favorito 'budget' de todas las listas de TikTok.",
+    shortDescription: "Frutal amaderado, fresco y de muy buena duración.",
     description:
-      "La estructura frutal-amaderada que hizo famoso a Aventus, con la piña y el almizcle seco como protagonistas. Aparece en prácticamente todos los rankings de 'mejores perfumes económicos' de PerfumeTok.",
+      "Piña y grosella negra en la salida, un corazón de abedul y jazmín, sobre un fondo seco de almizcle y musgo de roble. Elegante y versátil, para el día a día o para salir.",
   },
   {
     slug: "9pm-black",
@@ -372,8 +368,8 @@ export const products: Product[] = [
     brand: "Afnan",
     category: "Árabes",
     family: "Oriental especiado",
+    similarTo: "Para fans de 1 Million Lucky, de Paco Rabanne",
     gender: "Masculino",
-    tag: "Viral",
     size: "100ml",
     price: 72500,
     liquidColor: "#6B4B8A",
@@ -382,9 +378,9 @@ export const products: Product[] = [
       corazon: ["Muguet", "Azahar"],
       fondo: ["Pachulí", "Ámbar", "Vainilla", "Haba tonka"],
     },
-    shortDescription: "Masculino dulce viral, uno de los más buscados en #fragtok.",
+    shortDescription: "Oriental especiado, dulce y con muy buena proyección.",
     description:
-      "Especiado, dulce y con proyección larga — de los masculinos árabes con más presencia sostenida en redes, con varios flankers dando vueltas por si este engancha.",
+      "Bergamota, canela y manzana en la salida, con un corazón floral de muguet y azahar sobre un fondo de pachulí, ámbar y vainilla. Especiado, dulce y con mucho carácter.",
   },
   {
     slug: "kismet-magic",
@@ -394,7 +390,6 @@ export const products: Product[] = [
     category: "Árabes",
     family: "Floral ambarado",
     gender: "Unisex",
-    tag: "Viral",
     size: "100ml",
     price: 45000,
     liquidColor: "#B26BFF",
@@ -403,9 +398,9 @@ export const products: Product[] = [
       corazon: ["Canela", "Haba tonka", "Roble"],
       fondo: ["Vainilla", "Praliné", "Sándalo"],
     },
-    shortDescription: "La 'joya oculta' de 2026: de nicho a búsqueda masiva en semanas.",
+    shortDescription: "Floral ambarado, cálido y con una salida poco común.",
     description:
-      "El formato 'dupe reveal' lo sacó del anonimato en cuestión de semanas. Floral ambarado con muy buena relación precio-calidad — todavía tiene margen para crecer antes de saturarse.",
+      "Una salida de coñac poco habitual da paso a un corazón de canela y haba tonka, sobre un fondo de vainilla, praliné y sándalo. Cálido, dulce y distinto a todo lo demás del catálogo.",
   },
   {
     slug: "amber-oud-gold-edition",
@@ -414,9 +409,8 @@ export const products: Product[] = [
     brand: "Al Haramain",
     category: "Árabes",
     family: "Oud ahumado",
-    similarTo: "Estilo Ombré Nomade (Louis Vuitton)",
+    similarTo: "Para fans de Ombré Nomade, de Louis Vuitton",
     gender: "Unisex",
-    tag: "Viral",
     size: "120ml",
     price: 120500,
     liquidColor: "#D4A93D",
@@ -425,9 +419,9 @@ export const products: Product[] = [
       corazon: ["Melón", "Piña", "Ámbar"],
       fondo: ["Almizcle", "Vainilla", "Maderas"],
     },
-    shortDescription: "Árabe premium, estrella de #perfumearabe.",
+    shortDescription: "Oud ahumado y premium, con mucha presencia.",
     description:
-      "Oud ahumado con un fondo cálido de vainilla y benjuí. Un escalón arriba en precio, pensado para quien ya probó los básicos árabes y quiere algo con más presencia.",
+      "Bergamota y notas verdes en la salida, un corazón de melón, piña y ámbar, sobre un fondo cálido de almizcle, vainilla y maderas. Un escalón arriba para quien ya conoce los básicos árabes.",
   },
   {
     slug: "dubai-chocolate",
@@ -445,9 +439,9 @@ export const products: Product[] = [
       corazon: ["Haba tonka", "Cardamomo", "Tahini"],
       fondo: ["Chocolate", "Vainilla", "Ámbar"],
     },
-    shortDescription: "La ola 'chocolate Dubai' salta de lo viral en comida al perfume.",
+    shortDescription: "Gourmand de chocolate, pistacho y tahini.",
     description:
-      "Inspirado directamente en el postre que rompió todos los récords en redes: cacao, pistacho y tahini en formato perfume. Contenido asegurado para cualquier video de unboxing.",
+      "Pistacho, kunafa y caramelo en la salida, con un corazón de haba tonka, cardamomo y tahini sobre un fondo de chocolate, vainilla y ámbar. Dulce, cálido y distinto a cualquier otro gourmand del catálogo.",
   },
   {
     slug: "bharara-king",
@@ -466,9 +460,9 @@ export const products: Product[] = [
       corazon: ["Notas afrutadas"],
       fondo: ["Vainilla", "Almizcle blanco", "Ámbar"],
     },
-    shortDescription: "Fenómeno de TikTok Shop: botella premium que rinde en video.",
+    shortDescription: "Amaderado especiado premium. El tope de gama de la casa.",
     description:
-      "El tope de gama del catálogo: amaderado especiado denso, con una estética de botella que es contenido en sí misma. Para el cliente que busca algo con más presencia y está dispuesto a pagar por eso.",
+      "Naranja, bergamota y limón en la salida, con un corazón afrutado sobre un fondo de vainilla, almizcle blanco y ámbar. Denso, elegante y con la presencia que promete su botella.",
   },
 ];
 

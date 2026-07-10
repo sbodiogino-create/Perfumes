@@ -11,7 +11,7 @@ export default function ProductCard({ product }: { product: Product }) {
       <div className="relative flex items-center justify-center bg-ink-soft py-8">
         {product.tag && (
           <span className="absolute left-4 top-4 rounded-full bg-lime px-3 py-1 text-xs font-bold text-ink">
-            {product.tag === "Viral" ? "🔥 Viral" : "📈 Tendencia"}
+            {product.tag === "Viral" ? "🔥" : "📈 Tendencia"}
           </span>
         )}
         <ProductImage

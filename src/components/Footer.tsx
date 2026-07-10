@@ -8,7 +8,7 @@ export default function Footer() {
           <p className="font-display text-xl font-bold">PULSO</p>
           <p className="mt-2 text-sm text-muted">Sentí tu pulso.</p>
           <p className="mt-4 text-xs text-muted">
-            Perfumes árabes y de nicho, curados. Buenos Aires, Argentina.
+            Perfumes árabes y de diseñador a los mejores precios. Argentina.
           </p>
         </div>
 
@@ -17,7 +17,7 @@ export default function Footer() {
           <ul className="mt-3 space-y-2 text-sm text-muted">
             <li><Link href="/tienda?cat=Árabes" className="hover:text-lime">Árabes</Link></li>
             <li><Link href="/tienda?cat=Diseñador" className="hover:text-lime">Diseñador</Link></li>
-            <li><Link href="/tienda?tag=Viral" className="hover:text-lime">🔥 Virales</Link></li>
+            <li><Link href="/tienda?tag=Viral" className="hover:text-lime">🔥 Destacados</Link></li>
           </ul>
         </div>
 
@@ -34,7 +34,7 @@ export default function Footer() {
           <ul className="mt-3 space-y-2 text-sm text-muted">
             <li>Instagram — @pulso.perfumes</li>
             <li>TikTok — @pulso.perfumes</li>
-            <li>WhatsApp — Consultas y ventas</li>
+            <li>WhatsApp — +54 9 3464 55-9293</li>
           </ul>
         </div>
       </div>
