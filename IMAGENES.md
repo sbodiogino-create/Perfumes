@@ -1,73 +1,51 @@
-# Fotos de producto — estado y cómo completarlas
+# Fotos de producto — estado
 
-## Por qué no hay fotos reales todavía
+## Estado actual: 16 de 20 con foto real confirmada
 
-Investigué notas olfativas y fotos para los 20 productos del catálogo con 3
-agentes de búsqueda en paralelo. Las **notas se pudieron verificar** cruzando
-Fragrantica con una segunda fuente (sitio oficial de marca o retailer grande)
-— ya están cargadas en `src/lib/products.ts`.
+El usuario fue mandando fotos de producto por chat y las fuimos cruzando
+contra el catálogo. Están en `public/productos/<slug>.png` y cargadas en
+`src/lib/products.ts` (campo `image`).
 
-Las **fotos no se pudieron conseguir**: este entorno de ejecución bloquea por
-política de red cualquier descarga directa de páginas externas (WebFetch/curl
-devuelven 403 contra fragrantica.com, los sitios oficiales de las marcas,
-retailers grandes, e incluso Wikipedia). Solo funciona la búsqueda de texto,
-que no permite extraer una URL de imagen real y verificada. Preferí dejar el
-campo `image` vacío en vez de inventar o adivinar una URL — un link roto o
-mal habilitado para hotlinking en un sitio de venta real es peor que no tener
-foto.
+| Producto | Foto | Notas |
+|---|---|---|
+| Khamrah | ✅ | |
+| Yara (Pink) | ✅ | |
+| Yara Candy | ⬜ | falta |
+| Khamrah Qahwa | ✅ | |
+| Ana Abiyedh Rouge | ✅ | |
+| Bade'e Al Oud For Glory | ✅ | |
+| Mayar | ✅ | |
+| Khamrah Dukhan | ✅ | |
+| Hawas for Him | ✅ | |
+| Asad | ✅ | |
+| Asad Bourbon | ⬜ | falta (no confundir con "Asad Zanzibar", que es un flanker distinto — ya llegó una foto de esa variante y se descartó) |
+| Eclaire | ✅ | |
+| Eclaire Pistache | ⬜ | falta |
+| Fakhar Woman Rose | ✅ | confirmado por el usuario |
+| Club de Nuit Intense Man | ✅ | |
+| 9pm Black | ✅ | confirmado por el usuario contra el frasco físico |
+| Kismet Magic | ✅ | |
+| Amber Oud Gold Edition | ✅ | se ajustó el producto a **120ml/$120.500** (antes 60ml/$89.000) porque esa es la presentación de la que se consiguió foto — se prefirió corregir el dato real antes que editar la imagen para que diga otra cosa |
+| Dubai Chocolate | ⬜ | falta |
+| King (Bharara) | ✅ | |
 
-## Dos formas de resolverlo (recomendado, en este orden)
+**Fotos recibidas pero descartadas** (no corresponden al producto exacto del catálogo):
+- "Odyssey Eau de Parfum" — no es ninguno de los 20 productos del catálogo.
+- "Asad Zanzibar" — es un flanker de Asad, no el Asad base que vendemos.
+- "Khair Pistachio" (Paris Corner) — no está en el catálogo.
 
-### 1. Pedirle las fotos a tu proveedor mayorista (más rápido y sin problema de derechos)
+## Cómo se resolvió el problema de acceso
 
-Ementoring Import (el mayorista de tu lista de precios) normalmente entrega a
-sus revendedores un paquete de fotos de catálogo para usar en la venta —
-es información que ya tienen armada y es la vía más prolija en términos de
-derechos de imagen, porque te las da explícitamente para revender. Pediles el
-link a la carpeta/drive de fotos del catálogo.
+Las fotos las pegó el usuario directo en el chat. Este entorno no tiene salida
+de red para descargarlas de sitios externos, pero las imágenes pegadas quedan
+guardadas en el historial de la sesión (`~/.claude/projects/.../*.jsonl`,
+como bloques base64) — se extrajeron de ahí, se verificó visualmente cada una
+contra el nombre del producto, y se copiaron a `public/productos/`.
 
-### 2. Sacarlas manualmente de las páginas oficiales de cada marca
+## Qué falta
 
-Si necesitás avanzar ya, entrá a cada uno de estos links, click derecho sobre
-la foto principal del producto → "Copiar dirección de imagen" (o descargarla),
-y subilas a `public/productos/` con el nombre del slug (ej.
-`public/productos/khamrah.jpg`). Después yo (o cualquiera con acceso al repo)
-completo el campo `image` de `src/lib/products.ts` apuntando a
-`/productos/khamrah.jpg`.
-
-| Producto | Página candidata (verificar que sea el frasco/tamaño correcto) |
-|---|---|
-| Khamrah | https://www.lattafa-usa.com/products/khamrah |
-| Yara (Pink) | https://lattafa.com/product/yara/ |
-| Yara Candy | https://lattafa.com/product/yara-candy/ |
-| Khamrah Qahwa | https://www.lattafa-usa.com/products/khamrah-qahwa |
-| Ana Abiyedh Rouge | https://lattafa.com/product/ana-abiyedh-rouge/ |
-| Bade'e Al Oud For Glory | https://lattafa.com/product/badee-al-oud-oud-for-glory/ (¡no confundir con "Honor & Glory", es otro producto!) |
-| Mayar | https://lattafa.com/product/mayar/ (verificar que sea el Mayar original, no un flanker "Natural Intense"/"Cherry Intense") |
-| Khamrah Dukhan | https://lattafa.com/product/khamrah-dukhan/ |
-| Hawas for Him | http://www.rasasi.com/product/hawas-him |
-| Asad | https://lattafa.com/product/asad/ |
-| Asad Bourbon | https://lattafa.com/product/asad-bourbon/ |
-| Eclaire | https://www.lattafa-usa.com/products/eclaire |
-| Eclaire Pistache | https://www.lattafa-usa.com/products/eclaire-pistache |
-| Fakhar Woman Rose | https://lattafa.com/product/fakhar-lattafa-women/ |
-| Club de Nuit Intense Man | https://armaf.com/products/club-de-nuit-intense-for-man |
-| 9pm Black | https://afnan.com/products/9-pm (verificar que sea la variante "Black" y no el "9pm" original — tienen frascos distintos) |
-| Kismet Magic | https://www.fragrancenet.com/cologne/maison-alhambra/maison-alhambra-kismet-magic/eau-de-parfum |
-| Amber Oud Gold Edition | https://shop.alharamainperfumes.com/default/haramain-amber-oud-gold-edition-60ml-spray.html (no confundir con la variante "Extreme") |
-| Dubai Chocolate | https://ha-fragrances.com/products/dubai-chocolate-pistachio-kunafa-perfume-100ml-eau-de-parfum |
-| King (Bharara) | https://www.bhararabeauty.com/products/bharara-king |
-
-Ninguna de estas URLs fue verificada por fetch directo (el entorno no lo
-permite) — son las páginas de producto que la búsqueda identificó como
-correctas, pero conviene chequear visualmente que el frasco/tamaño coincida
-antes de usarlas.
-
-## Mientras tanto: qué se ve hoy en el sitio
-
-Todos los productos usan una ilustración SVG generada por código (frasco +
-etiqueta con el nombre, coloreada según la nota principal de cada fragancia).
-El componente `ProductImage` ya está listo para mostrar la foto real apenas
-se complete el campo `image` — no hace falta tocar ningún otro archivo, y si
-una URL de imagen falla al cargar, cae automáticamente de vuelta a la
-ilustración SVG (no se rompe el sitio).
+4 productos sin foto todavía: **Yara Candy, Asad Bourbon, Eclaire Pistache,
+Dubai Chocolate**. Sirve cualquier foto de producto con fondo claro/blanco —
+el componente `ProductImage` la muestra sobre una tarjeta blanca redondeada
+consistente con el resto del catálogo, y si falla al cargar cae de vuelta a
+la ilustración SVG automáticamente.

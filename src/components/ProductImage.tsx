@@ -24,13 +24,16 @@ export default function ProductImage({
   }
 
   return (
-    // eslint-disable-next-line @next/next/no-img-element -- imagen externa hotlinked, dominio variable por producto
-    <img
-      src={product.image}
-      alt={`Foto de ${product.name}`}
-      className={`${className ?? ""} object-contain`}
-      loading="lazy"
-      onError={() => setFailed(true)}
-    />
+    <div
+      className={`${className ?? ""} flex aspect-[3/4] items-center justify-center rounded-2xl bg-white p-2`}
+    >
+      {/* eslint-disable-next-line @next/next/no-img-element -- foto de producto en public/, tamaños variables según contexto */}
+      <img
+        src={product.image}
+        alt={`Foto de ${product.name}`}
+        className="h-full w-full object-contain"
+        onError={() => setFailed(true)}
+      />
+    </div>
   );
 }

@@ -120,12 +120,11 @@ Grande), Pistachio Kunafa (Tubbees, vuelve cuando haya stock).
 - [x] Notas olfativas verificadas contra Fragrantica + una fuente adicional
       por producto (ver el comentario al inicio de `src/lib/products.ts` para
       los casos con menor confianza o ambigüedad de nombre).
-- [ ] Fotos reales de producto — el sitio ya soporta mostrarlas, pero
-      conseguirlas requiere acceso de red que este entorno no tiene. Plan y
-      lista de páginas candidatas por producto en [`IMAGENES.md`](./IMAGENES.md).
+- [x] Fotos reales de producto — 16 de 20 ya cargadas (`public/productos/`),
+      confirmadas contra el producto físico. Faltan 4: Yara Candy, Asad
+      Bourbon, Eclaire Pistache, Dubai Chocolate — estado en [`IMAGENES.md`](./IMAGENES.md).
 - [ ] Conectar dominio propio (ej. `pulsoperfumes.com.ar`).
 - [ ] Configurar email transaccional (confirmación de pedido) — ej. Resend o SendGrid.
-- [ ] Fotos reales de producto (hoy son ilustraciones SVG generadas por código).
 - [ ] Dar de alta cuentas de Instagram/TikTok con el mismo @handle y aplicar la identidad visual de `marketing/`.
 - [ ] Generar código QR real apuntando a la URL final del sitio para el flyer imprimible.
 - [ ] Revisar el tipo de cambio y los márgenes por escalón cada vez que se actualicen precios (pestaña `Parametros` del Excel original) y reflejarlo en `src/lib/products.ts`.

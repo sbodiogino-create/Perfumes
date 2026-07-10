@@ -38,15 +38,21 @@ export type Product = {
 // menos una fuente adicional (sitio oficial de marca o retailer grande) para
 // cada producto. Confianza alta salvo: Yara Candy (una sola fuente), Ana
 // Abiyedh Rouge (reviewers reportan un perfil más especiado/almendrado que la
-// pirámide "oficial"), 9pm Black (existe ambigüedad entre "9pm" original y la
-// variante "Black" — verificar contra el frasco físico antes de publicar) y
-// Dubai Chocolate (nombre comercial de "Pistachio Kunafa" de Anfar 1950).
-// `image` queda sin completar para todo el catálogo: este entorno no tiene
-// acceso de red para descargar/verificar fotos reales — ver README para cómo
-// sumarlas.
+// pirámide "oficial") y Dubai Chocolate (nombre comercial de "Pistachio
+// Kunafa" de Anfar 1950). 9pm Black fue confirmado contra el frasco físico
+// por el dueño del negocio.
+//
+// `image` apunta a fotos reales del frasco (public/productos/<slug>.png)
+// confirmadas contra el producto físico. Amber Oud Gold Edition se cargó en
+// 120ml/$120.500 (en vez de 60ml/$89.000) porque esa es la presentación de
+// la que se consiguió foto — se prefirió ajustar el dato real del producto
+// antes que editar la imagen para que diga otra cosa. Los productos sin
+// `image` todavía usan la ilustración SVG (ver IMAGENES.md para el estado
+// de cada uno).
 export const products: Product[] = [
   {
     slug: "khamrah",
+    image: "/productos/khamrah.png",
     name: "Khamrah",
     brand: "Lattafa",
     category: "Árabes",
@@ -67,6 +73,7 @@ export const products: Product[] = [
   },
   {
     slug: "yara-pink",
+    image: "/productos/yara-pink.png",
     name: "Yara",
     brand: "Lattafa",
     category: "Árabes",
@@ -107,6 +114,7 @@ export const products: Product[] = [
   },
   {
     slug: "khamrah-qahwa",
+    image: "/productos/khamrah-qahwa.png",
     name: "Khamrah Qahwa",
     brand: "Lattafa",
     category: "Árabes",
@@ -127,6 +135,7 @@ export const products: Product[] = [
   },
   {
     slug: "ana-abiyedh-rouge",
+    image: "/productos/ana-abiyedh-rouge.png",
     name: "Ana Abiyedh Rouge",
     brand: "Lattafa",
     category: "Árabes",
@@ -148,6 +157,7 @@ export const products: Product[] = [
   },
   {
     slug: "badee-al-oud-for-glory",
+    image: "/productos/badee-al-oud-for-glory.png",
     name: "Bade'e Al Oud — For Glory",
     brand: "Lattafa",
     category: "Árabes",
@@ -168,6 +178,7 @@ export const products: Product[] = [
   },
   {
     slug: "mayar",
+    image: "/productos/mayar.png",
     name: "Mayar",
     brand: "Lattafa",
     category: "Árabes",
@@ -188,6 +199,7 @@ export const products: Product[] = [
   },
   {
     slug: "khamrah-dukhan",
+    image: "/productos/khamrah-dukhan.png",
     name: "Khamrah Dukhan",
     brand: "Lattafa",
     category: "Árabes",
@@ -208,6 +220,7 @@ export const products: Product[] = [
   },
   {
     slug: "hawas-him",
+    image: "/productos/hawas-him.png",
     name: "Hawas for Him",
     brand: "Rasasi",
     category: "Árabes",
@@ -228,6 +241,7 @@ export const products: Product[] = [
   },
   {
     slug: "asad",
+    image: "/productos/asad.png",
     name: "Asad",
     brand: "Lattafa",
     category: "Árabes",
@@ -268,6 +282,7 @@ export const products: Product[] = [
   },
   {
     slug: "eclaire",
+    image: "/productos/eclaire.png",
     name: "Eclaire",
     brand: "Lattafa",
     category: "Árabes",
@@ -308,6 +323,7 @@ export const products: Product[] = [
   },
   {
     slug: "fakhar-woman-rose",
+    image: "/productos/fakhar-woman-rose.png",
     name: "Fakhar Woman Rose",
     brand: "Lattafa",
     category: "Árabes",
@@ -329,6 +345,7 @@ export const products: Product[] = [
   },
   {
     slug: "club-de-nuit-intense-man",
+    image: "/productos/club-de-nuit-intense-man.png",
     name: "Club de Nuit Intense Man",
     brand: "Armaf",
     category: "Árabes",
@@ -350,6 +367,7 @@ export const products: Product[] = [
   },
   {
     slug: "9pm-black",
+    image: "/productos/9pm-black.png",
     name: "9pm Black",
     brand: "Afnan",
     category: "Árabes",
@@ -370,6 +388,7 @@ export const products: Product[] = [
   },
   {
     slug: "kismet-magic",
+    image: "/productos/kismet-magic.png",
     name: "Kismet Magic",
     brand: "Maison Alhambra",
     category: "Árabes",
@@ -390,6 +409,7 @@ export const products: Product[] = [
   },
   {
     slug: "amber-oud-gold-edition",
+    image: "/productos/amber-oud-gold-edition.png",
     name: "Amber Oud Gold Edition",
     brand: "Al Haramain",
     category: "Árabes",
@@ -397,8 +417,8 @@ export const products: Product[] = [
     similarTo: "Estilo Ombré Nomade (Louis Vuitton)",
     gender: "Unisex",
     tag: "Viral",
-    size: "60ml",
-    price: 89000,
+    size: "120ml",
+    price: 120500,
     liquidColor: "#D4A93D",
     notes: {
       salida: ["Bergamota", "Notas verdes"],
@@ -431,6 +451,7 @@ export const products: Product[] = [
   },
   {
     slug: "bharara-king",
+    image: "/productos/bharara-king.png",
     name: "King",
     brand: "Bharara",
     category: "Árabes",
