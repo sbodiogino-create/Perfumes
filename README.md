@@ -98,3 +98,7 @@ En `marketing/` hay 3 piezas listas para usar:
 - `flyer-imprimible-a5.png` — flyer para imprimir/repartir
 
 El plan completo de lanzamiento, ideas de anuncios y calendario de contenido está en [`MARKETING.md`](./MARKETING.md).
+
+Para Instagram/TikTok específicamente — bios, calendario de 2 semanas con
+captions y guiones de reels listos, y piezas gráficas en `contenido/` — ver
+[`CONTENIDO.md`](./CONTENIDO.md).
