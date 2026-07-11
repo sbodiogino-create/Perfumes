@@ -302,6 +302,7 @@ export const products: Product[] = [
   },
   {
     slug: "eclaire-pistache",
+    image: "/productos/eclaire-pistache.png",
     name: "Eclaire Pistache",
     brand: "Lattafa",
     category: "Árabes",

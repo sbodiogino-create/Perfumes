@@ -1,38 +1,18 @@
 # Fotos de producto — estado
 
-## Estado actual: 19 de 20 con foto real confirmada
+## Estado actual: 20 de 20 con foto real ✅
 
-El usuario fue mandando fotos de producto por chat y las fuimos cruzando
-contra el catálogo. Están en `public/productos/<slug>.png` y cargadas en
-`src/lib/products.ts` (campo `image`).
+Catálogo completo. El usuario fue mandando fotos de producto por chat y las
+fuimos cruzando contra el catálogo real. Están en `public/productos/` y
+cargadas en `src/lib/products.ts` (campo `image`).
 
-| Producto | Foto | Notas |
-|---|---|---|
-| Khamrah | ✅ | |
-| Yara (Pink) | ✅ | |
-| Yara Candy | ✅ | |
-| Khamrah Qahwa | ✅ | |
-| Ana Abiyedh Rouge | ✅ | |
-| Bade'e Al Oud For Glory | ✅ | |
-| Mayar | ✅ | |
-| Khamrah Dukhan | ✅ | |
-| Hawas for Him | ✅ | |
-| Asad | ✅ | |
-| Asad Bourbon | ✅ | |
-| Eclaire | ✅ | |
-| Eclaire Pistache | ⬜ | falta (no es "Khair Pistachio" de Paris Corner — llegaron dos fotos de ese producto y se descartaron ambas) |
-| Fakhar Woman Rose | ✅ | confirmado por el usuario |
-| Club de Nuit Intense Man | ✅ | |
-| 9pm Black | ✅ | confirmado por el usuario contra el frasco físico |
-| Kismet Magic | ✅ | |
-| Amber Oud Gold Edition | ✅ | se ajustó el producto a **120ml/$120.500** (antes 60ml/$89.000) porque esa es la presentación de la que se consiguió foto — se prefirió corregir el dato real antes que editar la imagen para que diga otra cosa |
-| Dubai Chocolate | ✅ | |
-| King (Bharara) | ✅ | |
-
-**Fotos recibidas pero descartadas** (no corresponden al producto exacto del catálogo):
+**Fotos recibidas pero descartadas en el camino** (no correspondían al
+producto exacto del catálogo — se dejó sin usar en vez de cargar algo que
+no coincide con lo que se vende):
 - "Odyssey Eau de Parfum" — no es ninguno de los 20 productos del catálogo.
 - "Asad Zanzibar" — es un flanker de Asad, no el Asad base que vendemos.
-- "Khair Pistachio" (Paris Corner) — llegó dos veces, pero no es "Eclaire Pistache" (Lattafa) ni ningún otro producto del catálogo.
+- "Khair Pistachio" (Paris Corner) — llegó dos veces, pero no es "Eclaire
+  Pistache" (Lattafa, sí está en el catálogo) ni ningún otro producto.
 
 ## Cómo se resolvió el problema de acceso
 
@@ -42,11 +22,16 @@ guardadas en el historial de la sesión (`~/.claude/projects/.../*.jsonl`,
 como bloques base64) — se extrajeron de ahí, se verificó visualmente cada una
 contra el nombre del producto, y se copiaron a `public/productos/`.
 
-## Qué falta
+## Ajustes de datos hechos por una foto
 
-Solo 1 producto sin foto: **Eclaire Pistache** (Lattafa — ojo, no es "Khair
-Pistachio" de Paris Corner, que es otra marca y ya llegó dos veces por
-error). Sirve cualquier foto de producto con fondo claro/blanco — el
-componente `ProductImage` la muestra sobre una tarjeta blanca redondeada
-consistente con el resto del catálogo, y si falla al cargar cae de vuelta a
-la ilustración SVG automáticamente.
+- **Amber Oud Gold Edition**: se ajustó el producto a 120ml/$120.500 (antes
+  60ml/$89.000) porque esa es la presentación de la que se consiguió foto —
+  se prefirió corregir el dato real antes que editar la imagen para que
+  diga otra cosa.
+
+## Cómo funciona en el sitio
+
+El componente `ProductImage` muestra la foto real sobre una tarjeta blanca
+redondeada consistente en toda la tienda. Si una imagen llegara a fallar al
+cargar, cae automáticamente de vuelta a la ilustración SVG — el sitio nunca
+se rompe por una foto faltante.

@@ -120,9 +120,9 @@ Grande), Pistachio Kunafa (Tubbees, vuelve cuando haya stock).
 - [x] Notas olfativas verificadas contra Fragrantica + una fuente adicional
       por producto (ver el comentario al inicio de `src/lib/products.ts` para
       los casos con menor confianza o ambigüedad de nombre).
-- [x] Fotos reales de producto — 16 de 20 ya cargadas (`public/productos/`),
-      confirmadas contra el producto físico. Faltan 4: Yara Candy, Asad
-      Bourbon, Eclaire Pistache, Dubai Chocolate — estado en [`IMAGENES.md`](./IMAGENES.md).
+- [x] Fotos reales de producto — los 20 productos tienen foto real cargada
+      (`public/productos/`), confirmadas contra el producto físico. Detalle
+      en [`IMAGENES.md`](./IMAGENES.md).
 - [ ] Conectar dominio propio (ej. `pulsoperfumes.com.ar`).
 - [ ] Configurar email transaccional (confirmación de pedido) — ej. Resend o SendGrid.
 - [ ] Dar de alta cuentas de Instagram/TikTok con el mismo @handle y aplicar la identidad visual de `marketing/`.
